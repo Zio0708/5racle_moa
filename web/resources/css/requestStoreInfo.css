@@ -1,0 +1,253 @@
+.rs_background{
+  height: 1200px;
+  width:100%;
+  background-color: rgb(236, 240, 241);
+  position: absolute;
+  opacity: 0.5;
+  z-index: 999;
+}
+.rs_wrapper{
+  background-color: #ebebeb;
+  font-family: 'Nanum Gothic', sans-serif;
+  position:absolute;
+  width: 600px;
+  height: auto;
+  z-index: 1000;
+  margin: 100px 0 0 700px; 
+  border: 2px solid rgb(44, 62, 80);
+  border-radius: 5px;
+}
+.rs_wrapper .rs_header h1{
+  text-align: center;
+  color: rgb(75, 52, 96);
+}
+.rs_wrapper .rs_body {
+  background-color: #ffffff;
+  border-radius: 5px;
+  overflow: auto;
+  height : 500px;
+}
+.rs_context .rs_context_title {
+  padding: 5px 0 0 30px;
+  color: rgb(75, 52, 96);
+}
+.rs_context .rs_context_contents{
+  height: 150px;
+  border: 1px solid #bdc3c7;
+  margin: 5px 30px 0 30px;
+  overflow: : auto;
+}
+.rs_context .rs_context_contents h4{
+  margin: 10px;
+  color: rgb(94, 94, 94)
+}
+.rs_storage_products .rs_storage_products_title {
+  padding: 5px 0 0 30px;
+  color: rgb(75, 52, 96);
+}
+.rs_storage_products .rs_storage_products_contents {
+  margin: 20px;
+}
+.rs_storage_products_contents table {
+  margin:10px;
+  width: 535px;
+  border-collapse: collapse;
+  border-top: 2px solid rgb(75, 52, 96);
+  text-align: center;
+}
+.rs_storage_products_contents table th {
+  color: rgb(75, 52, 96);
+  background: #dfe6e9;
+  text-align: center;
+}
+.rs_storage_products_contents table th,.rs_storage_products_contents table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.rs_storage_products_contents table th:first-child, .rs_storage_products_contents table td:first-child {
+  border-left: 0;
+}
+.rs_storage_products_contents table th:last-child, .rs_storage_products_contents table td:last-child {
+  border-right: 0;
+}
+.rs_storage_products_contents table tr td:first-child{
+  text-align: center;
+}
+.rs_storage_products_contents table caption{caption-side: bottom; display: none;}
+
+.rs_other .rs_other_title{
+  margin: 5px 30px;
+  color: rgb(75, 52, 96);
+}
+.rs_other_content h4{
+  margin:0;
+}
+.rs_size{
+  margin: 20px 30px;
+  padding-top: 10px;
+}
+
+.rs_size .rs_size_title {
+  width: 35px;
+  padding: 3px 30px;
+  color : rgb(75, 52, 96);
+  font-weight: bold;
+  float: left;
+}
+.rs_size .rs_size_contents h4{
+  font-weight: normal;
+}
+.rs_size .rs_size_contents .rs_box,
+.rs_size .rs_size_contents .rs_bicycle{
+  width: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin-right: 5px;
+  padding : 5px;
+  float: left;
+}
+.rs_size .rs_size_contents .rs_bed {
+  width: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  padding : 5px;
+  float: left;
+}
+.rs_price {
+  clear:both;
+  margin: 10px 30px;
+  padding: 20px 0 0 0;
+}
+.rs_price .rs_price_title {
+  width: 35px;
+  padding: 3px 30px;
+  color : rgb(75, 52, 96);
+  font-weight: bold;
+  float: left;
+}
+.rs_price .rs_price_contents h4{
+  font-weight: normal;
+}
+.rs_price .rs_price_contents .rs_measured,
+.rs_price .rs_price_contents .rs_bargain{
+  width: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding : 5px;
+  float: left;
+}
+
+.rs_storage_date {
+  clear: both;
+  margin: 10px 15px;
+  padding: 20px 0 0 0;
+}
+.rs_storage_date .rs_storage_date_title {
+  width: 70px;
+  padding: 3px 10px 3px 30px;
+  color : rgb(75, 52, 96);
+  font-weight: bold;
+  float: left;
+}
+.rs_storage_date .rs_storage_date_contents h4{
+  font-weight: normal;
+}
+.rs_storage_date .rs_storage_date_contents .rs_start_date,
+.rs_storage_date .rs_storage_date_contents .rs_end_date{
+  width: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding : 5px;
+  float: left;
+  text-align: center;
+}
+.rs_transaction_type {
+  clear:both;
+  margin: 10px 15px;
+  padding: 20px 0 0 0;
+}
+.rs_transaction_type .rs_transaction_type_title {
+  width: 70px;
+  padding: 3px 10px 3px 30px;
+  color : rgb(75, 52, 96);
+  font-weight: bold;
+  float: left;
+}
+.rs_transaction_type .rs_transaction_type_contents h4{
+  font-weight: normal;
+}
+.rs_transaction_type .rs_transaction_type_contents{
+  width: auto;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding : 5px;
+  float: left;
+  text-align: center;
+}
+.rs_application_date{
+  clear:both;
+  margin: 10px 15px;
+  padding: 20px 0 0 0;
+}
+.rs_application_date .rs_application_date_title {
+  width: 70px;
+  padding: 3px 10px 3px 30px;
+  color : rgb(75, 52, 96);
+  font-weight: bold;
+  float: left;
+}
+.rs_application_date .rs_application_date_contents h4{
+  font-weight: normal;
+}
+.rs_application_date .rs_application_date_contents{
+  width: 100px;
+  border: 1px solid #bdc3c7;
+  border-radius: 5px;
+  margin-right: 10px;
+  padding : 5px;
+  float: left;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.rs_button {
+  clear: both;
+  padding-top: 30px;
+  height: 70px;
+}
+.rs_button #confirm_btn,
+.rs_button #refuse_btn{
+    color: #ffffff;
+    border: none;
+    cursor : pointer;
+    float: left;
+    margin-top: 5px;
+    margin-right: 35px;
+    border-radius: 5px;
+    font-size: 11pt;
+    height: 35px;
+    width: 80px;
+    font-weight: bold;
+}
+
+#confirm_btn {
+  margin-left: 200px;
+  background-color: rgb(113, 81, 252);
+}
+#refuse_btn {
+  background-color: rgb(243, 43, 18);
+}
+.fos{
+  position:absolute;
+  z-index: 1002;
+  cursor:pointer;
+  font-size: 30pt;
+  float:left;
+  margin-left: 1250px;
+  margin-top: 120px;
+}
+.fos:hover{
+  color: gray;
+}

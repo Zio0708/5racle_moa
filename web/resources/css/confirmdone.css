@@ -1,0 +1,159 @@
+@charset "UTF-8";
+body{
+  padding: 0;
+  margin: 0;
+  font-family: "Nanum Gothic", sans-serif;
+}
+.container{
+  margin: 80px 50px 0 50px;
+  hegith:1200px;
+}
+.content{
+	height:1100px;
+  padding-top : 50px;
+}
+.hostpage_menubar{
+  position: absolute;
+  display: inline-block;
+  width: 300px;
+  height: auto;
+  text-align: center;
+}
+.menubar_title{
+  padding: 0;
+  margin: 0;
+}
+.menubar_title h1{
+  padding: 0;
+  margin: 0;
+}
+.menubar_subtitle{
+  padding:0;
+  margin:0;
+  color: #535353;
+}
+.menubar_subtitle h3{
+  padding: 0;
+  margin: 0;
+}
+.menubar_list{
+  padding:0;
+  margin:0;
+  font-size: 11pt;
+}
+.menubar_list #request_btn{
+  background: #EDE7F6;
+}
+.menubar_list ul{
+  padding:0;
+  list-style: none;
+}
+.menubar_list ul li{
+  border-top : 2px solid #bdc3c7;
+  border-left :2px solid #bdc3c7;
+  border-right : 2px solid #bdc3c7;
+  color:#535353;
+  padding: 20px 0;
+  margin-left: 25px;
+  width: 80%;
+  cursor: pointer;
+}
+.menubar_list ul li:last-child{
+  border-bottom: 2px solid #bdc3c7;
+}
+.main{
+  position: absolute;
+  display: inline-block;
+  border: 2px solid #bdc3c7;
+  margin-left: 350px;
+  width:1270px;
+  height:1000px;
+  margin-bottom: 30px;
+  padding : 50px 70px;
+}
+.main_title{
+  font-size: 15pt;
+  padding: 0;
+}
+.main_title table{
+  width:100%;
+  border-collapse: collapse;
+}
+.main_title table #table_title1{
+  color : black;
+  width: 10%;
+  border-bottom: 3px solid #544667;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+
+  text-align: center;
+  cursor: pointer;
+}
+.main_title table #table_title2{
+  color : white;
+  width: 10%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom: 3px solid #544667;
+  background: #544667;
+  text-align: center;
+  cursor: pointer;
+}
+.main_title table #table_space{
+  border-bottom: 3px solid #bdc3c7;
+}
+.main_content table {
+  width:100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+#title_profile{
+  width:6%;
+}
+ #title_nick{
+  width:14%;
+}
+#title_period{
+  width:18%;
+}
+#title_info{
+  width:27%;
+}
+#title_price{
+  width:10%;
+}
+#title_state{
+  width:10%;
+}
+#title_delete{
+	width:7%;
+}
+.main_content table tr button{
+	border:0;
+	background:#544667;
+	border-radius:6px;
+	color:white;
+	outline:0;
+	cursor:pointer
+	
+}
+.main_content table th{
+  padding: 7px 0 7px 0;
+  border-bottom: 3px solid #bdc3c7;
+}
+.main_content table td{
+  cursor:pointer;
+  padding: 7px 0 7px 0;
+  border-bottom: 1px solid #bdc3c7;
+}
+.main_content table td span{
+  cursor:pointer; 
+  color: #544667;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.main_paging{
+  text-align: center;
+  margin-top : 50px;
+}

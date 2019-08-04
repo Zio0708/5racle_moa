@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springmvc.mybatis.CheckLuggageMapper">
+    <sql id ="insert_columns">
+        #{storeRequestNum,mode=OUT,jdbcType=NUMERIC},
+        #{transactionWay,mode=IN,jdbcType=VARCHAR},
+        #{startDate,mode=IN,jdbcType=DATE},
+        #{endDate,mode=IN,jdbcType=DATE},
+        #{bargainPrice,mode=IN,jdbcType=NUMERIC},
+        #{measuredPrice,mode=IN,jdbcType=NUMERIC},
+        #{content,mode=IN,jdbcType=VARCHAR},
+        #{category,mode=IN,jdbcType=VARCHAR},
+        #{product,mode=IN,jdbcType=VARCHAR},
+        #{productCnt,mode=IN,jdbcType=VARCHAR},
+        #{productSize,mode=IN,jdbcType=VARCHAR},
+        #{pictureName,mode=IN,jdbcType=VARCHAR},
+        #{articleNum,mode=IN,jdbcType=NUMERIC},
+        #{userId,mode=IN,jdbcType=NUMERIC}
+    </sql>
+        <select id="insert" statementType="CALLABLE" parameterType="com.example.springmvc.vo.StoreRequestVO">
+        CALL PI_STORE_REQUEST(<include refid="insert_columns"/>)
+    </select>
+</mapper>

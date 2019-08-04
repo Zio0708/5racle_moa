@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.moa.mybatis.StoreRequestMapper">
+
+    <sql id="requestList_columns">
+        STORE_REQUEST_ID, PROFILE_IMAGE_NAME, NICKNAME, START_DATE, END_DATE, MEASURED_PRICE, BASE_ADDRESS, DETAIL_ADDRESS
+    </sql>
+
+    <resultMap id="requestList_map" type="com.moa.model.vo.SimpleUserRequestVO">
+        <id property="requestId" column="STORE_REQUEST_ID"  />
+        <id property="profileName" column="PROFILE_IMAGE_NAME"  />
+        <id property="hostNick" column="NICKNAME"  />
+        <id property="startDate" column="START_DATE"  />
+        <id property="endDate" column="END_DATE"  />
+        <id property="bargainPrice" column="MEASURED_PRICE"  />
+        <id property="baseAddress" column="BASE_ADDRESS"  />
+        <id property="detailAddress" column="DETAIL_ADDRESS"  />
+    </resultMap>
+
+    <select id="searchRequestList" parameterType="java.lang.Integer" resultMap="requestList_map">
+        SELECT <include refid="requestList_columns" />
+        FROM STORE_REQUEST_VIEW
+        WHERE USER_ID = #{userId}
+    </select>
+
+    <sql id="requestProductList_columns">
+        PRODUCT_NAME, PRODUCT_CNT, CATEGORY_NAME
+    </sql>
+
+    <resultMap id="requestProductList_map" type="com.moa.model.vo.RequestProductVO">
+        <id property="productName" column="PRODUCT_NAME"  />
+        <id property="productCnt" column="PRODUCT_CNT"  />
+        <id property="productCategory" column="CATEGORY_NAME"  />
+    </resultMap>
+
+    <select id="searchRequestProduct" parameterType="java.lang.Integer" resultMap="requestProductList_map">
+        SELECT <include refid="requestProductList_columns" />
+        FROM STORE_REQUEST_PRODUCT_VIEW
+        WHERE STORE_REQUEST_ID = #{requestId}
+    </select>
+
+</mapper>

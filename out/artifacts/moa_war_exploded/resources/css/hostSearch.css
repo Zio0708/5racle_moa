@@ -1,0 +1,381 @@
+body{
+margin:0;
+}
+.container{
+	width:100%;
+	height:100%;
+	margin:0;
+	margin-top:80px; 
+}
+.map_header{
+	width:100%;
+	height:60px;
+	margin:0px;
+	background-color:#E8E8E8;
+	display: -webkit-inline-box;
+}
+.select_wrapper{
+	display: -webkit-inline-box;
+	height:60px;
+	background-color:#E8E8E8;
+}
+
+.radio_wrapper{
+	margin-top:12px;
+	margin-left:12px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+.option-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  position: relative;
+  top:5px;
+  height: 20px;
+  width: 20px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 10px;
+  outline: none;
+  position: relative;
+  z-index: 1000;
+}
+.option-input:hover {
+  background: #8000ff;
+}
+.option-input:checked {
+  background: #423257;
+}
+.option-input:checked::before {
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  display: inline-block;
+  font-size: 26px;
+  text-align: center;
+  line-height: 40px;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #33e0aa;
+  content: '';
+  display: block;
+  position: relative;
+  z-index: 100;
+}
+.option-input.radio {
+  border-radius: 50%;
+}
+.option-input.radio::after {
+  border-radius: 50%;
+}
+
+
+
+.icon_select_mate {
+  position: absolute;
+  top:20px;
+  right: 2%;
+  font-size: 16px;
+    height: 22px;
+  transition: all 275ms;
+}
+.select_mate,.guideBox {
+  position: relative;
+  display:block;
+  float: left;
+  margin-left: 20px;
+  min-width: 100px;
+  width: 140px;
+  min-height: 50px;
+  font-family: 'Nanum Gothic', sans-serif;
+  color: #423257;
+  font-weight: 600;
+  background-color: #E8E8E8;
+  border-radius: 3px;
+  transition: all 375ms ease-in-out;
+}
+.lengthBox{
+	width:100px;
+	height:100px;
+	background-color:red;
+}
+.select_mate select {
+  position: absolute;
+  overflow: hidden;
+  height: 0px;
+  opacity: 0;  
+    z-index: -1;
+  }
+
+.cont_list_select_mate {
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.cont_select_int {
+ position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: 999;
+  overflow: hidden;
+  height: 0px;
+  width: 100%;
+  background-color: #fff;
+  padding: 0px;
+  margin-bottom: 0px;
+  margin-top: 0px;
+  border-radius: 0px 0px 3px 3px;
+  box-shadow: 1px 4px 10px -2px rgba(0, 0, 0, 0.2);
+  transition: all 375ms ease-in-out;
+}
+.cont_select_int li {
+	position: relative;
+    float: left;
+    width: 96%;
+    border-bottom:1px solid #E0E0E0;
+    background-color: #F5F5F5;
+    list-style-type: none;
+    padding: 10px 2%;
+    margin: 0px;  
+    transition: all 275ms ease-in-out;
+    display: block;
+    cursor:pointer;       
+}
+.cont_select_int li:last-child {
+        border-radius: 3px;
+        border-bottom:0px; 
+}
+.cont_select_int li:hover {
+		background-color: #423257;
+		color:white;
+} 
+.active {
+ 		background-color: #EEEEEE;
+}
+.selecionado_opcion {
+    padding: 20px 2%;
+    width: 96%;
+    display: block;
+    margin: 0px;
+    cursor: pointer;
+}
+
+
+.search_wrapper{
+	margin:12px;
+	
+}
+.search_input,
+.search_btn{
+  position: relative;
+  width: 250px;
+  height: 35px;
+  padding: 0;
+  display: inline-block;
+  float: left;
+  border-radius:4px;
+  border-width:0px;
+}
+
+/*  .search_input {
+  color: #666;
+  z-index: 2;
+  border: 0 none;
+}
+.search_input:focus {
+  outline: 0 none;
+} 
+ .search_input:focus + .search_btn {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s; 
+}
+.search_input:focus + .search_btn .fa {
+  -webkit-transform: translate(0px, 0);
+      -ms-transform: translate(0px, 0);
+          transform: translate(0px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  color: #fff;
+} */
+
+.search_btn {
+  z-index: 1;
+  width: 50px;
+  border: 0 none;
+  background: #ceb980;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;  
+  -webkit-transform: translate(-50px, 0);
+      -ms-transform: translate(-50px, 0);
+          transform: translate(-50px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.fa-search {
+  font-size: 1.4rem;
+  color: #29abe2;
+  z-index: 3;
+  top: 25%;
+  -webkit-transform: translate(-190px, 0);
+      -ms-transform: translate(-190px, 0);
+          transform: translate(-190px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition: all 0.1s ease-in-out;
+          transition: all 0.1s ease-in-out;
+}
+.content{
+	margin:0px;
+}
+.selection_wrapper{
+	float:left;
+	height:773px;
+	width:1230px;
+	margin:0px;
+	background-color:white;
+	overflow-y:scroll;
+	position:absolute;'
+}
+.selection_content{
+	margin:0px;
+	padding: 20px 0px 0px 20px;
+	height:353px;
+	font-size:20px;
+	font-weight:300px;
+	line-height:30px;
+	font-family: 'Nanum Gothic', sans-serif;
+	cursor:Pointer;
+	
+}
+.room_select{
+	width:273px;
+	height:403px;
+	background-color:white;
+	margin-right:25px;
+	float:left;
+	font-size:20px;
+	font-weight:300px;
+	line-height:30px;
+	font-family: 'Nanum Gothic', sans-serif;
+	
+}
+.room_select img{
+	width:273px;
+	height:200px;
+	border-radius:4px;
+}
+#title{
+	margin-top:0px;
+	font-size:23px;
+	font-weight:600;
+	line-height:33px;
+	margin-bottom:0px;
+	font-family: '�굹�닎�뒪�섏뼱 ExtraBold', sans-serif;
+}
+#word{
+	font-size:20px;
+	font-weight:300px;
+	line-height:30px;
+	font-family: 'Nanum Gothic', sans-serif;
+}
+.map_wrapper{
+	float:left;
+	height:776px;
+	min-width:100px;
+	width:658px;
+	margin:0px;
+	background-color:light_gray;
+	position:absolute;
+	left:1230px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'占쎈쐻占쎈윥筌앹궍�쐻占쎈짗占쎌굲',sans-serif;font-size:12px;}
+.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+.map_wrap {position:relative;width:100%;height:500px;}
+#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+.bg_white {background:#fff;}
+#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+#menu_wrap .option{text-align: center;}
+#menu_wrap .option p {margin:10px 0;}  
+#menu_wrap .option button {margin-left:5px;}
+#placesList li {list-style: none;}
+#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+#placesList .item span {display: block;margin-top:4px;}
+#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+#placesList .item .info{padding:10px 0 10px 55px;}
+#placesList .info .gray {color:#8a8a8a;}
+#placesList .info .jibun {padding-left:26px;background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+#placesList .info .tel {color:#009900;}
+#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(http://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+#placesList .item .marker_1 {background-position: 0 -10px;}
+#placesList .item .marker_2 {background-position: 0 -56px;}
+#placesList .item .marker_3 {background-position: 0 -102px}
+#placesList .item .marker_4 {background-position: 0 -148px;}
+#placesList .item .marker_5 {background-position: 0 -194px;}
+#placesList .item .marker_6 {background-position: 0 -240px;}
+#placesList .item .marker_7 {background-position: 0 -286px;}
+#placesList .item .marker_8 {background-position: 0 -332px;}
+#placesList .item .marker_9 {background-position: 0 -378px;}
+#placesList .item .marker_10 {background-position: 0 -423px;}
+#placesList .item .marker_11 {background-position: 0 -470px;}
+#placesList .item .marker_12 {background-position: 0 -516px;}
+#placesList .item .marker_13 {background-position: 0 -562px;}
+#placesList .item .marker_14 {background-position: 0 -608px;}
+#placesList .item .marker_15 {background-position: 0 -654px;}
+#pagination {margin:10px auto;text-align: center;}
+#pagination a {display:inline-block;margin-right:10px;}
+#pagination .on {font-weight: bold; cursor: default;color:#777;}
+
+
+
+.keepBtn,.mapBtn {
+    background-color: #423257;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    margin: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    font-family: 'Nanum Gothic', sans-serif;
+    border-radius: 4px;
+}
+#map{
+	width:674px;
+	height:776px;
+}
+
+
+
+
+
+
+

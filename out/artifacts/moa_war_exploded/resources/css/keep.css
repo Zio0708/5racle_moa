@@ -1,0 +1,100 @@
+/* * {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family: "나눔고딕", sans-serif;
+	color: #333333;
+	font-size: 14pt;
+	font-weight: 500;
+} */
+
+.wrap {
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
+	font-family: "나눔고딕", sans-serif;
+	color: #333333;
+	font-size: 14pt;
+	font-weight: 500;
+	/* position: absolute; */
+	margin-top: 80px;
+	width: 1920px;
+	height: 720px
+}
+
+.main_board {
+	/* overflow: auto;
+	overflow-x: hidden; */
+	position: absolute;
+	width: 980px;
+	height: 540px;
+	padding: 40px 0px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #F9F9F9;
+}
+
+.radio_btn {
+	width: 15px;
+	height: 15px;
+}
+
+.check_btn {
+	width: 15px;
+	height: 15px;
+}
+
+#exit_btn {
+	cursor: pointer;
+	font-size: 14pt;
+	font-weight: bold;
+	position: absolute;
+	left: 830px;
+	top: 20px;
+	border: none;
+	border-radius: 5px;
+	width: 120px;
+	height: 45px;
+	color: white;
+	background-color: #5E5E5E;
+}
+
+.left_side, .right_side {
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	color: #423257;
+	cursor: pointer;
+	top: 350px;
+}
+
+.left_side {
+	left: 150px;
+}
+
+.right_side {
+	right: 100px;
+}
+
+#bar {
+	position: absolute;
+	top: 100%;
+	left: 492px;
+	transform: translate(-50%, -50%);
+	width: 980px;
+	height: 40px;
+	background-color: grey;
+	line-height: 40px;
+}
+
+#percent {
+	color: white;
+	font-weight: bold;
+	font-size: 14pt;
+	background-color: #423257;
+}
+
+.input_p {
+	display: none;
+}

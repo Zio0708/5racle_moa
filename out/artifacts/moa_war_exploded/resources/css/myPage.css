@@ -1,0 +1,185 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-family: "Nanum Gothic", sans-serif;
+}
+.container{
+  margin: 80px 50px 0 50px;
+}
+.content{
+  padding-top: 50px;
+  margin-bottom: 820px;
+}
+.mypage_menubar{
+  position:absolute;
+  display: inline-block;
+  width: 300px;
+  height: auto;
+  text-align: center;
+}
+.menubar_title{
+  padding: 0;
+  margin: 0;
+}
+.menubar_title h1{
+  padding: 0;
+  margin: 0;
+}
+.menubar_subtitle{
+  padding:0 0 20px 0;
+  margin:0;
+  color: #535353;
+}
+.menubar_subtitle h3{
+  padding: 0;
+  margin: 0;
+}
+.menubar_list{
+  padding:0;
+  margin:0;
+  font-size: 11pt;
+}
+.menubar_list ul{
+  padding:0;
+  list-style: none;
+}
+.menubar_list ul li{
+  border-top : 2px solid #bdc3c7;
+  border-left :2px solid #bdc3c7;
+  border-right : 2px solid #bdc3c7;
+  color:#535353;
+  padding: 20px 0;
+  margin-left: 25px;
+  width: 80%;
+  cursor: pointer;
+}
+.menubar_list ul li:last-child{
+  border-bottom: 2px solid #bdc3c7;
+}
+.main{
+  position: absolute;
+  display: inline-block;
+  border: 2px solid #bdc3c7;
+  margin-left: 350px;
+  width:1300px;
+  height:700px;
+  margin-bottom: 30px;
+  padding : 50px 70px;
+}
+.main_title{
+  font-size: 15pt;
+  color: #544667;
+  padding-bottom:39px;
+  border-bottom: 2px solid #bdc3c7;
+}
+.main_title h3{
+  padding: 0;
+  padding-bottom: 10px;
+  margin: 0;
+  float:left;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #544667;
+}
+.main_context {
+  position:absolute;
+  margin: 20px 0 0 25px;
+  border: 2px solid #bdc3c7;
+  height: 280px;
+
+}
+.main_context h3{
+  cursor: pointer;
+}
+.left_context{
+  margin: 50px 0 0 70px;
+  border-right: 2px solid #bdc3c7;
+  width: 250px;
+  float: left;
+}
+.left_context .profile_image{
+  padding:0;
+  margin:0;
+  width:auto;
+}
+.left_context .profile_image img{
+  width:180px;
+  height:180px;
+  border:2px solid #bdc3c7;
+  border-radius: 100px;
+
+}
+.middle_context{
+  margin:50px 0;
+  padding:20px 0 0 0;
+  border-right: 2px solid #bdc3c7;
+  width:450px;
+  height:170px;
+  float: left;
+}
+.middle_context .request_entrust_list h3,
+.middle_context .userinfo{
+  padding-left: 60px;
+  float:left;
+}
+.userinfo{
+  margin-top: 10px;
+}
+.middle_context .request_entrust_list{
+  padding-top: 30px;
+}
+.request_entrust_list{
+  margin-top: 40px;
+}
+.middle_context .username h3{
+  padding: 0;
+  margin:0;
+}
+.middle_context .useremail h4{
+  padding: 0;
+  margin: 0;
+}
+.middle_context #update_btn{
+    background-color: #423257;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor : pointer;
+    float: right;
+    margin-top: 15px;
+    margin-right: 65px;
+    border-radius: 5px;
+    font-size: 11pt;
+    height: 35px;
+    width: 80px;
+}
+
+
+.middle_context .entrust_stuff #entrust_stuff_cnt,
+.middle_context .request_entrust_list #request_entrust_list_cnt{
+  margin-right: 90px;
+  float:right;
+}
+.right_context{
+  margin:35px 0;
+  padding:20px 0 0 0;
+  width:470px;
+  float: left;
+}
+.using_storage{
+  margin-top: 72px;
+}
+.right_context .not_read_message h3,
+.right_context .using_storage h3{
+  padding: 35px 0 0 0;
+  margin:0;
+  float:left;
+  margin-left: 70px;
+}
+.right_context .not_read_message #not_read_message_cnt,
+.right_context .using_storage #using_storage_cnt{
+  float:none;
+  float:right;
+  margin-right: 100px;
+}

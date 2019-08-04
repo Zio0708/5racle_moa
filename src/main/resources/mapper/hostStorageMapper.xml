@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.moa.mybatis.HostStorageMapper">
+
+    <insert id="insertOriginHome" parameterType="com.moa.model.vo.OriginHomeStorageVO" statementType="CALLABLE">
+        {
+            CALL PI_ORIGIN_HOME_HOST(
+                #{userId},
+                #{addressId}
+            )
+        }
+    </insert>
+    <insert id="insertOriginCompany" parameterType="com.moa.model.vo.OriginCompanyStorageVO" statementType="CALLABLE">
+        {
+            CALL PI_ORIGIN_COMPANY_HOST(
+                #{userId},
+                #{addressId},
+                #{businessName},
+                #{representative},
+                #{registrationNum}
+            )
+        }
+    </insert>
+    <insert id="insertOriginOther" parameterType="com.moa.model.vo.OriginOtherStorageVO" statementType="CALLABLE">
+        {
+            CALL PI_ORIGIN_OTHER_HOST(
+                #{userId},
+                #{addressId},
+                #{otherText}
+            )
+        }
+    </insert>
+    <insert id="insertNewHome" parameterType="com.moa.model.vo.NewHomeStorageVO" statementType="CALLABLE">
+        {
+            CALL PI_NEW_HOME_HOST(
+                #{latitude},
+                #{longitude},
+                #{postCode},
+                #{baseAddress},
+                #{detailAddress},
+                #{userId}
+            )
+        }
+    </insert>
+    <insert id="insertNewCompany" parameterType="com.moa.model.vo.NewCompanyStorageVO" statementType="CALLABLE">
+        {
+            CALL PI_NEW_COMPANY_HOST(
+                #{latitude},
+                #{longitude},
+                #{postCode},
+                #{baseAddress},
+                #{detailAddress},
+                #{userId},
+                #{businessName},
+                #{representative},
+                #{registrationNum}
+            )
+        }
+    </insert>
+    <insert id="insertNewOther" parameterType="com.moa.model.vo.NewOtherStorageVO" statementType="CALLABLE">
+        {
+            CALL PI_NEW_OTHER_HOST(
+                #{latitude},
+                #{longitude},
+                #{postCode},
+                #{baseAddress},
+                #{detailAddress},
+                #{userId},
+                #{otherText}
+            )
+        }
+    </insert>
+</mapper>

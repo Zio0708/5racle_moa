@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springmvc.mybatis.MemberMapper">
+
+    <sql id="member_columns">
+        id, pwd, name, DATE_FORMAT(reg_date,"%Y-%m-%d %H:%i:%s") AS reg_date
+    </sql>
+
+    <resultMap id="member_map" type="com.example.springmvc.vo.Member">
+        <id property="id" column="id" jdbcType="VARCHAR"/>
+        <id property="pwd" column="pwd" jdbcType="VARCHAR"/>
+        <id property="name" column="name" jdbcType="VARCHAR"/>
+        <id property="reg_date" column="reg_date_str" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="getAllMembers" resultType="com.example.springmvc.vo.Member">
+        SELECT id, pwd, name, DATE_FORMAT(reg_date,"%Y-%m-%d %H:%i:%s") AS reg_date, mem_type FROM MEMBER order by reg_date desc
+    </select>
+
+    <select id="getAllMembers2" resultMap="member_map">
+        SELECT <include refid="member_columns"/> FROM MEMBER order by reg_date DESC
+    </select>
+
+    <insert id="insertMember" parameterType="com.example.springmvc.vo.Member">
+        INSERT INTO MEMBER (id, pwd, name) VALUES(#{id}, #{pwd}, #{name})
+    </insert>
+
+    <delete id="deleteMember" parameterType="java.lang.String">
+        DELETE FROM MEMBER WHERE id=#{id}
+    </delete>
+
+    <delete id="deleteMultiMember" parameterType="com.example.springmvc.vo.Member">
+        DELETE FROM MEMBER WHERE id in (<foreach collection="ids" item="id" separator=", ">#{id}</foreach> )
+    </delete>
+
+    <!--파라메터가 복수일 경우, 해쉬맵 또는 객체를 이용-->
+    <update id="updateMember" parameterType="hashMap">
+        UPDATE MEMBER SET pwd=#{pwd}, name=#{name} WHERE id=#{id}
+    </update>
+
+    <select id="selectOne" parameterType="java.lang.String" resultType="com.example.springmvc.vo.Member">
+        SELECT <include refid="member_columns"/>
+        FROM member
+        WHERE id=#{id}
+    </select>
+
+    <select id="selectOneByLike" parameterType="hashMap" resultType="com.example.springmvc.vo.Member">
+        SELECT <include refid="member_columns"/>
+        FROM member
+        WHERE name LIKE '%${search_name}%'
+    </select>
+
+    <select id="selectMultiCondition" parameterType="hashMap" resultType="com.example.springmvc.vo.Member">
+        SELECT <include refid="member_columns"/>
+        FROM member
+        <choose>
+            <when test="search_name neq null and search_mem_type neq null">
+            WHERE name LIKE '%${search_name}%' OR mem_type=#{search_mem_type}
+            </when>
+            <when test="search_mem_type neq null">
+            WHERE mem_type=#{search_mem_type}
+            </when>
+            <when test="search_name neq null">
+                WHERE name LIKE '%${search_name}%'
+            </when>
+        </choose>
+    </select>
+</mapper>

@@ -1,0 +1,37 @@
+.footer{
+  clear:both;
+  margin:0;
+  padding: 0;
+  font-family: "nanum gothic";
+  width: 900px;
+  height: 200px;
+  margin-left: 520px;
+}
+.category{
+  padding-top: 20px;
+  width: 900px;
+  height: 45px;
+}
+.category ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.category ul li{
+  float:left;
+  margin-right: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.information{
+  clear: both;
+}
+.information span {
+  margin: 0 30px 10px 0;;
+  margin-bottom: 10px;
+  padding: 0;
+  font-weight: bold;
+}
+.i1, .i2, .i3, .i4{
+  margin-bottom: 15px;
+}

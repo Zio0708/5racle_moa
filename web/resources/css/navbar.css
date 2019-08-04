@@ -1,0 +1,163 @@
+body{
+  margin: 0;
+  padding: 0;
+}
+.navbar{
+  position: fixed;
+  height:80px;
+  overflow: hidden;
+  top: 0;
+  display: flex;
+  align-items: center;
+  background: white;
+  width:100%;
+  font-size: 15px;
+  font-family: "³ª´®°íµñ";
+  z-index: 10001;
+}
+.logo_img{
+  background: url(../image/navbar/logo.png) no-repeat 50% 50%;
+  background-size: contain;
+  width: 150px;
+  height : 40px;
+  float : left;
+  cursor: pointer;
+}
+.navber_right{
+  position: absolute;
+  right: 20px;
+}
+.navber_right a, .navbar_left a{
+  color : #423257;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: color 0.3s;
+}
+#sidebar_btn{
+  cursor: pointer;
+}
+.doc{
+  position: fixed;
+  width: 350px;
+  height: 100%;
+  right: -350px;
+  transition: right ease-in-out 200ms;
+  z-index: 10001;
+}
+.sidebar{
+  margin-top:-80px;
+  width: 350px;
+  height:100%;
+  background:white;
+  overflow: hidden;
+  float:right;
+  z-index: 10002;
+}
+.sidehide{
+  float: right;
+  left: 20px;
+  margin: 0px;
+  color: black;
+  opacity: 0.7;
+  font-size: 30px;
+  cursor: pointer;
+}
+.sidebar .author{
+  width: 285px;
+  height: 50px;
+  padding: 20px 20px 10px 20px;
+
+  position: relative;
+  display: block;
+  text-decoration: none;
+  list-style: none;
+
+}
+.sidebar .author .author_profile{
+  position: absolute;
+  width:50px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+.sidebar .author .author_name{
+  position: relative;
+  left:70px;
+  width: 150px;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+.sidebar .author a{
+  text-decoration: none;
+  list-style: none;
+  color:black;
+}
+.sidebar .author a span{
+  font-size: 12px;
+  color:gray;
+}
+.sidebar .main_menu ul{
+  border-top: 1px solid gray;
+  margin: 0;
+  padding: 30px 0 0 0;
+}
+.sidebar .main_menu li{
+  list-style: none;
+  padding : 10px 40px;
+  display: block;
+  margin: auto;
+}
+.sidebar .main_menu a{
+  text-decoration: none;
+  color:black;
+  opacity: 0.7;
+  font-size: 20px;
+  font-family: "³ª´®¹Ù¸¥°íµñ";
+  font-weight: 500;
+}
+.sidebar .sub_menu{
+	clear:both;
+}
+.sidebar .sub_menu ul{
+  margin-top:70px;
+  text-decoration: none;
+  list-style: none;
+  color:black;
+}
+.sidebar .sub_menu li{
+  list-style: none;
+  padding : 10px 4px;
+  display: block;
+  margin: auto;
+}
+.sidebar .sub_menu a{
+  text-decoration: none;
+  color:black;
+  opacity: 0.7;
+  font-size: 15px;
+  font-family: "³ª´®¹Ù¸¥°íµñ";
+  font-weight: 500;
+}
+.show{
+  right: 0;
+  width:5000px;
+  background: url(../image/navbar/blur.png) no-repeat 100% 100%;
+}
+.main_menu ul li{
+   clear:both;
+}
+.sub_menu ul li{
+   clear:both;	
+}
+.sub_menu ul {
+	padding-left: 40px;
+}
+
+/* .container{
+
+  margin-top:100px;
+
+
+} */

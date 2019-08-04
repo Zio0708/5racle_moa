@@ -1,0 +1,135 @@
+body{
+  padding: 0;
+  margin: 0;
+  font-family: "Nanum Gothic", sans-serif;
+}
+.container{
+  margin: 80px 50px 0 50px;
+}
+.content{
+  padding-top: 50px;
+  padding-bottom: 1100px;
+}
+.mypage_menubar{
+  position:absolute;
+  display: inline-block;
+  width: 300px;
+  height: auto;
+  text-align: center;
+}
+.menubar_title{
+  padding: 0;
+  margin: 0;
+}
+.menubar_title h1{
+  padding: 0;
+  margin: 0;
+}
+.menubar_subtitle{
+  padding:0 0 20px 0;
+  margin:0;
+  color: #535353;
+}
+.menubar_subtitle h3{
+  padding: 0;
+  margin: 0;
+}
+.menubar_list{
+  padding:0;
+  margin:0;
+  font-size: 11pt;
+}
+.menubar_list ul{
+  padding:0;
+  list-style: none;
+}
+.menubar_list ul li{
+  border-top : 2px solid #bdc3c7;
+  border-left :2px solid #bdc3c7;
+  border-right : 2px solid #bdc3c7;
+  color:#535353;
+  padding: 20px 0;
+  margin-left: 25px;
+  width: 80%;
+  cursor: pointer;
+}
+.menubar_list ul li:last-child{
+  border-bottom: 2px solid #bdc3c7;
+}
+.main{
+  position: absolute;
+  display: inline-block;
+  border: 2px solid #bdc3c7;
+  margin-left: 350px;
+  width:1300px;
+  height:100%;
+  margin-bottom: 30px;
+  padding : 50px 70px;
+}
+.main_title{
+  font-size: 15pt;
+  color: #544667;
+  padding-bottom:39px;
+  border-bottom: 2px solid #bdc3c7;
+}
+.main_title h3{
+  padding: 0;
+  padding-bottom: 10px;
+  margin: 0;
+  float:left;
+  padding-bottom: 10px;
+  border-bottom: 3px solid #544667;
+}
+.main_content table {
+  width:100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+#title_profile{
+  width:7%;
+}
+ #title_nick{
+  width:7%;
+}
+#title_period{
+  width:15%;
+}
+#title_info{
+  width:20%;
+}
+#title_price{
+  width:5%;
+}
+#title_address{
+  width:20%;
+}
+
+.main_content table th{
+  padding: 7px 0 7px 0;
+  border-bottom: 3px solid #bdc3c7;
+}
+.main_content table td{
+  padding: 7px 0 7px 0;
+  border-bottom: 1px solid #bdc3c7;
+}
+.main_content table td span{
+  cursor:pointer;
+  color: #544667;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.main_paging{
+  text-align: center;
+  margin-top : 50px;
+  cursor: pointer;
+}
+img{
+  width: 60px;
+  height: 60px;
+  border-radius: 100px;
+}
+#listTable tr td{
+	cursor:pointer;
+}
+
