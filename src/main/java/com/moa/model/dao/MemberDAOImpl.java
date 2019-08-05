@@ -1,4 +1,4 @@
-package com.moa.dao;
+package com.moa.model.dao;
 
 import com.example.springmvc.mybatis.MemberMapper;
 import com.example.springmvc.vo.Member;

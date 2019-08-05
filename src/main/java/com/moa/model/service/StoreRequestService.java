@@ -1,7 +1,7 @@
-package com.moa.dao;
+package com.moa.model.service;
 
 import com.example.springmvc.vo.StoreRequestVO;
 
-public interface StoreRequestDAO {
+public interface StoreRequestService {
     public int insert(StoreRequestVO storeRequestVO);
 }

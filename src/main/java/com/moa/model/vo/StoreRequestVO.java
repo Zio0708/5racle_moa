@@ -1,4 +1,4 @@
-package com.moa.vo;
+package com.moa.model.vo;
 
 import lombok.Data;
 

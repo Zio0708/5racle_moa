@@ -1,4 +1,4 @@
-package com.moa.service;
+package com.moa.model.service;
 
 import com.example.springmvc.dao.StoreRequestDAO;
 import com.example.springmvc.vo.StoreRequestVO;

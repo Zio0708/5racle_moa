@@ -1,4 +1,4 @@
-package com.moa.dao;
+package com.moa.model.dao;
 
 import com.example.springmvc.mybatis.HostReputationMapper;
 import com.example.springmvc.vo.HostReputationVO;
