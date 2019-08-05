@@ -13,4 +13,6 @@ public interface StoreBoardDAO {
     List<SimpleStorageBoardVO> searchMyStorage(Map<String, Object> storageInfo);
 
     int searchMyStorageCnt(int hostId);
+
+    int insert(StoreBoardFormVO storeBoardFormVO);
 }

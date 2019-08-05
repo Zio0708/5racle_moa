@@ -16,7 +16,7 @@ public class StoreBoardSearchController {
     @Autowired
     private StoreBoardSearchService storeBoard;
 
-    @RequestMapping(value="/" , method=  RequestMethod.GET)
+    @RequestMapping(value="/Search" , method=  RequestMethod.GET)
     public String hostSearchGO(){
 
 

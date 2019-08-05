@@ -28,7 +28,7 @@
     </resultMap>
 
     <select id="searchEntrust" parameterType="com.moa.model.vo.DetailOptionVO" resultMap="entrustSearchVO">
-        <!--SELECT<include refid="Entrust_columns" /> FROM SEARCH_BOARD_VIEW SBV
+        SELECT<include refid="Entrust_columns" /> FROM SEARCH_BOARD_VIEW SBV
         JOIN
         (
         Select ARTICLE_NUM FROM ARTICLE_SEARCH_VIEW
@@ -40,8 +40,8 @@
         AND STORAGE_TYPE LIKE #{storageType}
         AND CATEGORY_ID LIKE #{category}
         )SB
-        USING (ARTICLE_NUM);-->
-        SELECT * FROM SEARCH_BOARD_VIEW SBV
+        USING (ARTICLE_NUM)
+        /*SELECT * FROM SEARCH_BOARD_VIEW SBV*/
     </select>
 
     <select id="selectOne" parameterType="int" resultType="hashMap">

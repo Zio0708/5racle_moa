@@ -14,4 +14,12 @@ public interface StoreBoardMapper {
     List<EntrustSearchVO> searchEntrust(DetailOptionVO detail);
     List<SimpleStorageBoardVO> searchMyStorage(Map<String,Object> storageInfo);
     int searchMyStorageCnt(int hostId);
+    Map<String, Object> selectParameters(Map<String, Object> map);
+    int insertIntoStoreBoard(Map<String, Object> map);
+    int insertIntoPetType(Map<String, Object> map);
+    int insertIntoSF_SB(Map<String, Object> map);
+    int insertIntoSBAttachedPicture(Map<String, Object> map);
+    int insertIntoDetailPriceFibo(Map<String, Object> map);
+    int selectCategoryId(String category);
+    int insertIntoForbiddenProduct(Map<String, Object> map);
 }
