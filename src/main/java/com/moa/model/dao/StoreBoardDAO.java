@@ -1,11 +1,16 @@
 package com.moa.model.dao;
 
-import com.moa.model.vo.DetailOptionVO;
-import com.moa.model.vo.EntrustResultSearchVO;
-import com.moa.model.vo.EntrustSearchVO;
+import com.moa.model.vo.*;
 
 import java.util.List;
+import java.util.Map;
 
 public interface StoreBoardDAO {
     List<EntrustSearchVO> searchEntrust(DetailOptionVO detail);
+
+    StoreBoardVO searchOne(int articleNum);
+
+    List<SimpleStorageBoardVO> searchMyStorage(Map<String, Object> storageInfo);
+
+    int searchMyStorageCnt(int hostId);
 }

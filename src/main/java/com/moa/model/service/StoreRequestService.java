@@ -1,7 +1,7 @@
 package com.moa.model.service;
 
-import com.example.springmvc.vo.StoreRequestVO;
+import com.moa.model.vo.StoreRequestVO;
 
 public interface StoreRequestService {
-    public int insert(StoreRequestVO storeRequestVO);
+     int insert(StoreRequestVO storeRequestVO);
 }

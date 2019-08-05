@@ -1,9 +1,9 @@
 package com.moa.model.service;
 
-import com.example.springmvc.dao.HostReputationDAO;
-import com.example.springmvc.dao.StoreBoardDAO;
-import com.example.springmvc.vo.HostReputationVO;
-import com.example.springmvc.vo.StoreBoardVO;
+import com.moa.model.dao.HostReputationDAO;
+import com.moa.model.dao.StoreBoardDAO;
+import com.moa.model.vo.HostReputationVO;
+import com.moa.model.vo.StoreBoardVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

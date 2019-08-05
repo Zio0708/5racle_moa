@@ -1,7 +1,7 @@
 package com.moa.model.service;
 
-import com.example.springmvc.dao.StoreRequestDAO;
-import com.example.springmvc.vo.StoreRequestVO;
+import com.moa.model.dao.StoreRequestDAO;
+import com.moa.model.vo.StoreRequestVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

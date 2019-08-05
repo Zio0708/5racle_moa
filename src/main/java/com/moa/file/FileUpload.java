@@ -94,7 +94,7 @@ public class FileUpload {
 		return articleMap;
 	}
 	
-	public static Map<String, Object> entrustUpload(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public static Map<String, Object> entrustUpload(HttpServletRequest request) throws ServletException, IOException {
 		Map<String, Object> articleMap = new HashMap<String, Object>();
 		String encoding="utf-8";
 		File currentDirPath = new File(PathMessage.IMG_REPO);

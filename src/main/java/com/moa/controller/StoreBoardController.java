@@ -1,7 +1,7 @@
 package com.moa.controller;
 
-import com.example.springmvc.message.PathMessage;
-import com.example.springmvc.service.StoreBoardService;
+import com.moa.message.PathMessage;
+import com.moa.model.service.StoreBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;

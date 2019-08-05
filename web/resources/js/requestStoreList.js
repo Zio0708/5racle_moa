@@ -172,7 +172,7 @@ var moveToTransaction = function(){
 	alert("일시적으로 서비스가 중단되었습니다.");
 }
 var moveToRequest = function(){
-	location.href = "/mypage/requestlist";
+	location.href = getContextPath() + "/moa/mypage/requestlist";
 
 }
 var moveToLatest = function(){

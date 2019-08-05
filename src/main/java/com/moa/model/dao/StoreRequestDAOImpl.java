@@ -1,24 +1,30 @@
 package com.moa.model.dao;
 
 import com.moa.model.vo.RequestProductVO;
+import com.moa.model.vo.SimpleHostRequestVO;
 import com.moa.model.vo.SimpleUserRequestVO;
+import com.moa.model.vo.StoreRequestVO;
+import com.moa.mybatis.CheckLuggageMapper;
 import com.moa.mybatis.StoreRequestMapper;
 import lombok.NoArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @NoArgsConstructor
 public class StoreRequestDAOImpl implements StoreRequestDAO {
     @Autowired
-    private SqlSession sqlSession;
+    @Qualifier("sqlSession_oracle")
+    private SqlSession sqlSession_oracle;
 
     public List<SimpleUserRequestVO> searchList(int userId){
-        StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
+        StoreRequestMapper mapper = sqlSession_oracle.getMapper(StoreRequestMapper.class);
         List<SimpleUserRequestVO> simpleList = new ArrayList<SimpleUserRequestVO>();
 
         simpleList = mapper.searchRequestList(userId);
@@ -37,5 +43,24 @@ public class StoreRequestDAOImpl implements StoreRequestDAO {
         }
 
         return simpleList;
+    }
+
+    @Override
+    public int insert(StoreRequestVO storeRequestVO) {
+        CheckLuggageMapper mapper=sqlSession_oracle.getMapper(CheckLuggageMapper.class);
+        mapper.insert(storeRequestVO);
+        return storeRequestVO.getStoreRequestNum();
+    }
+    @Override
+    public List<SimpleHostRequestVO> searchListByHost(Map<String,Object> map){
+        StoreRequestMapper mapper = sqlSession_oracle.getMapper(StoreRequestMapper.class);
+
+        return mapper.searchListByHost(map);
+    }
+    @Override
+    public int searchAllListCnt(Map<String,Object> map){
+        StoreRequestMapper mapper = sqlSession_oracle.getMapper(StoreRequestMapper.class);
+
+        return mapper.searchAllListCnt(map);
     }
 }

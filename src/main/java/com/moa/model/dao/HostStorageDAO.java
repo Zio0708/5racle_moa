@@ -9,4 +9,5 @@ public interface HostStorageDAO {
     boolean insertNewHome(NewHomeStorageVO newHomeStorageVO);
     boolean insertNewCompany(NewCompanyStorageVO newCompanyStorageVO);
     boolean insertNewOther(NewOtherStorageVO newOtherStorageVO);
+    HostReputationVO searchOne(int articleNum);
 }

@@ -1,7 +1,7 @@
 package com.moa.mybatis;
 
-import com.example.springmvc.vo.StoreRequestVO;
+import com.moa.model.vo.StoreRequestVO;
 
 public interface CheckLuggageMapper {
-    public void insert(StoreRequestVO storeRequestVO);
+    void insert(StoreRequestVO storeRequestVO);
 }

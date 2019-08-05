@@ -2,6 +2,8 @@ package com.moa.model.dao;
 
 import com.example.springmvc.mybatis.HostReputationMapper;
 import com.example.springmvc.vo.HostReputationVO;
+import com.moa.model.vo.HostReputationVO;
+import com.moa.mybatis.HostReputationMapper;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

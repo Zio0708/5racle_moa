@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    <script src="/resources/js/footer.js"></script>
-    <link rel="stylesheet" href="/resources/css/footer.css">
+    <script src="${pageContext.request.contextPath}/resources/js/footer.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/footer.css">
     <div class="footer">
       <div class="category">
         <ul>
