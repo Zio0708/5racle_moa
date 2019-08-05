@@ -10,7 +10,7 @@
     <sql id="selectOneColumnJoin">
        JOIN STORE_BOARD_TB SBT ON SBT.HOST_ID=HT.HOST_ID JOIN USER_TB UT ON UT.USER_ID=SBT.HOST_ID
     </sql>
-    <resultMap id="selectOneMap" type="com.example.springmvc.vo.HostReputationVO">
+    <resultMap id="selectOneMap" type="com.moa.model.vo.HostReputationVO">
         <id property="nick" column="닉네임" jdbcType="VARCHAR"/>
         <id property="starPointAvg" column="평균평점" jdbcType="NUMERIC"/>
         <id property="favoriteCnt" column="좋아요" jdbcType="NUMERIC"/>

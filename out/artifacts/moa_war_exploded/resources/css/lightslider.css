@@ -153,7 +153,7 @@
     display: block;
     top: 50%;
     height: 32px;
-    background-image: url('/moas/image/controls.png');
+    background-image: url('/resources/image/controls.png');
     cursor: pointer;
     position: absolute;
     z-index: 9999;

@@ -8,6 +8,12 @@
     STORAGE_PERIOD_TYPE_ID, NICKNAME, LATITUDE, LONGITUDE
     </sql>
 
+    <sql id="my_storage">
+        HOST_ID hostId, ARTICLE_NUM articleNum, TITLE title, STORE_PRODUCT_CNT storeProductCNt,
+        EXPIRE_PRODUCT_CNT exprieProductCnt, FAVORITE_CNT favoriteCnt,
+        REVIEW_CNT reviewCnt, STAR_POINT starPoint, PICTURE_NAME pictureName
+    </sql>
+
     <resultMap id="entrustSearchVO" type="com.moa.model.vo.EntrustSearchVO">
         <id property="articleNum" column="ARTICLE_NUM" jdbcType="NUMERIC"/>
         <id property="detailPrice" column="DETAIL_PRICE" jdbcType="NUMERIC"/>
@@ -34,8 +40,32 @@
         AND STORAGE_TYPE LIKE #{storageType}
         AND CATEGORY_ID LIKE #{category}
         )SB
-        USING (ARTICLE_NUM);-->
+        USING (ARTICLE_NUM)-->
         SELECT * FROM SEARCH_BOARD_VIEW SBV
     </select>
+
+    <select id="selectOne" parameterType="int" resultType="hashMap">
+        SELECT * FROM STORE_BOARD_VIEW WHERE 글번호 = #{articleNum}
+    </select>
+    <select id="selectDetailPrice" resultType="java.lang.String">
+        SELECT DETAIL_PRICE_NAME AS 상세가격 FROM DETAILS_PRICE_TB ORDER BY DETAILS_PRICE_ID
+    </select>
+
+    <select id="searchMyStorage" parameterType="hashMap" resultType="com.moa.model.vo.SimpleStorageBoardVO">
+
+        select * from
+        (
+        select * from
+        (select ROW_NUMBER() OVER(ORDER BY ARTICLE_NUM ASC) AS RW,
+        <include refid="my_storage"/>
+        FROM MY_STORAGE_VIEW WHERE HOST_ID = #{hostId}) MY_STORAGE_VIEW
+        WHERE RW <![CDATA[<=]]> #{lastNum}
+        ) where rw >= #{firstNum}
+    </select>
+
+    <select id="searchMyStorageCnt" parameterType="int" resultType="int">
+        select * from MY_STORAGE_VIEW where host_id = #{hostId}
+    </select>
+
 </mapper>
 

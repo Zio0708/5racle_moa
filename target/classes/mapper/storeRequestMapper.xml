@@ -9,6 +9,12 @@
         STORE_REQUEST_ID, PROFILE_IMAGE_NAME, NICKNAME, START_DATE, END_DATE, MEASURED_PRICE, BASE_ADDRESS, DETAIL_ADDRESS
     </sql>
 
+    <sql id ="simple_host_request">
+        STORE_REQUEST_ID articleNum,USER_ID  useId,NICKNAME  nick,
+        PICTURE_NAME  profileImg,PRODUCT_NAME  products,START_DATE  startDate,END_DATE  endDate,
+        TRANSACTION_STATE  state,TRANSACTION_PRICE  price
+    </sql>
+
     <resultMap id="requestList_map" type="com.moa.model.vo.SimpleUserRequestVO">
         <id property="requestId" column="STORE_REQUEST_ID"  />
         <id property="profileName" column="PROFILE_IMAGE_NAME"  />
@@ -40,6 +46,31 @@
         SELECT <include refid="requestProductList_columns" />
         FROM STORE_REQUEST_PRODUCT_VIEW
         WHERE STORE_REQUEST_ID = #{requestId}
+    </select>
+
+    <select id="searchListByHost" parameterType="hashMap" resultType="com.moa.model.vo.SimpleHostRequestVO">
+        SELECT <include refid="simple_host_request"/> FROM
+        (SELECT * FROM (select ROW_NUMBER() OVER(ORDER BY STORE_REQUEST_ID ASC) AS RW,
+        HOST_ID,STORE_REQUEST_ID, USER_ID,NICKNAME,PICTURE_NAME,PRODUCT_NAME,START_DATE,END_DATE,TRANSACTION_STATE,TRANSACTION_PRICE
+        from HOST_STORE_REQUEST_VIEW  WHERE HOST_ID = #{hostId}
+        <if test="stateType == '승인대기중'">
+            AND TRANSACTION_STATE ='승인대기중'
+        </if>
+        <if test="stateType == null">
+            AND TRANSACTION_STATE!='승인대기중'
+        </if>
+        ) HOST_STORE_REQUEST_VIEW WHERE RW <![CDATA[<=]]> #{lastNum})
+        WHERE RW >= #{firstNum}
+    </select>
+
+    <select id="searchAllListCnt" parameterType="hashMap" resultType="int">
+        SELECT count(*) FROM HOST_STORE_REQUEST_VIEW WHERE host_id = #{hostId}
+        <if test="stateType == '승인대기중'">
+            AND TRANSACTION_STATE ='승인대기중'
+        </if>
+        <if test="stateType == null">
+            AND TRANSACTION_STATE!='승인대기중'
+        </if>
     </select>
 
 </mapper>
