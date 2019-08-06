@@ -23,7 +23,7 @@ public class RegistHostController {
     @Autowired
     private AddressSearchService addressSearchService;
 
-    @RequestMapping(value="/registhost", method = RequestMethod.GET)
+    @RequestMapping(value="/registHost", method = RequestMethod.GET)
     public ModelAndView registHost(HttpServletRequest request){
         ModelAndView mav = new ModelAndView();
         Map<String, Object> addressInfo = null;

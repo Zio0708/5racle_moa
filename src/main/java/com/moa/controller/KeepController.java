@@ -1,3 +1,4 @@
+/*
 package com.moa.controller;
 
 import org.springframework.stereotype.Controller;
@@ -12,3 +13,4 @@ public class KeepController {
 		return "keep";
 	}
 }
+*/

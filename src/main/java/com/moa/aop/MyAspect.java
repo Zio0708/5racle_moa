@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class MyAspect {
     private static final Log Logger= LogFactory.getLog(MyAspect.class);
-    @Pointcut("execution(* com.example.springmvc..controller.*.*(..))")//작동 되는 시점
+    @Pointcut("execution(* com.moa.model..controller.*.*(..))")//작동 되는 시점
     public void testPointcut(){}
     @Around("testPointcut()")
     public Object checkTime(ProceedingJoinPoint pjp) throws Throwable{

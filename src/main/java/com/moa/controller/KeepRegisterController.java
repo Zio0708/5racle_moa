@@ -1,3 +1,4 @@
+/*
 package com.moa.controller;
 
 import com.moa.file.FileUpload;
@@ -21,21 +22,13 @@ public class KeepRegisterController {
     private LuggageWelcomeService luggageWelcomeService;
 
 
-    @RequestMapping("/keepregister")
+    @RequestMapping("/keepRegister")
     public @ResponseBody void registerStoreBoard(HttpServletRequest request) throws ServletException, IOException {
         Map<String, Object> articleMap = FileUpload.keepUpload(request);
         System.out.println("Controller: " + articleMap);
-        String hostId = "21";       //(String)request.getAttribute("hostId");
-
-//        int articleNum = luggageWelcomeService.noticeStorage(hostId, articleMap);
+        String hostId = "21";
         System.out.println("Result: " + luggageWelcomeService.noticeStorage(hostId, articleMap));
-        //request.setAttribute("articleNum", articleNum);
 
-        /*ModelAndView mav=new ModelAndView();
-        mav.setViewName(PathMessage.KEEPREGISTER);
-        articleMap.put("articleNum", articleNum);
-        mav.addObject("storeBoard",luggageWelcomeService.noticeStorage("hostId", articleMap));
-        return mav;*/
     }
 
     @ExceptionHandler(Exception.class)
@@ -46,3 +39,4 @@ public class KeepRegisterController {
         return mav;
     }
 }
+*/

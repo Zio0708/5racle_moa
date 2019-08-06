@@ -1,6 +1,6 @@
 package com.moa.controller;
 
-import com.moa.model.service.StoreBoardSearchService;
+/*import com.moa.model.service.StoreBoardSearchService;
 import com.moa.model.vo.DetailOptionVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,7 @@ public class APIStoreBoardSearchController {
     @Autowired
     private StoreBoardSearchService storeBoard;
 
-    @RequestMapping(value="/Search" , method=  RequestMethod.POST)
+    @RequestMapping(value="/Search1" , method=  RequestMethod.POST)
     public @ResponseBody List<Object> hostSearch(DetailOptionVO detail){
         System.out.println("전송중....");
          List<Object> documents = storeBoard.search(detail);
@@ -21,4 +21,4 @@ public class APIStoreBoardSearchController {
         return documents;
     }
 
-}
+}*/
