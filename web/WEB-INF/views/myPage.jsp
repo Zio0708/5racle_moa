@@ -44,16 +44,16 @@
             <div class="main_context">
               <div class="left_context">
                 <div class="profile_image">
-                  <img src="/resources/image/profile.jpg"><!-- <img src="sessionScope.profile"> -->
+                  <img src="/resources/image/${profileName}"><!-- <img src="sessionScope.profile"> -->
                 </div>
               </div>
               <div class="middle_context">
                 <div class="userinfo">
                   <div class="username">
-                    <h3>김모아</h3>
+                    <h3>${userName}</h3>
                   </div>
                   <div class="useremail">
-                    <h4>moa@google.com</h4>
+                    <h4>${userEmail}</h4>
                   </div>
                 </div>
                 <div class="update">
@@ -62,17 +62,17 @@
 
                 <div class="request_entrust_list" onclick="storeRequestList();">
                   <h3>보관 요청 목록 ></h3>
-                  <h3 id="request_entrust_list_cnt">0개</h3>
+                  <h3 id="request_entrust_list_cnt">${requestCnt}개</h3>
                 </div>
               </div>
               <div class="right_context">
                 <div class="not_read_message" onclick="notReadMessage();">
                   <h3>안읽은 쪽지 ></h3>
-                  <h3 id="not_read_message_cnt">0개</h3>
+                  <h3 id="not_read_message_cnt">${notReadMessageCnt}개</h3>
                 </div>
                 <div class="using_storage" onclick="usingStorage();">
                   <h3>이용중인 보관소 ></h3>
-                  <h3 id="using_storage_cnt">0개</h3>
+                  <h3 id="using_storage_cnt">${usingStorageCnt}개</h3>
                 </div>
               </div>
             </div>
