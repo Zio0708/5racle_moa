@@ -1,13 +1,13 @@
 package com.moa.model.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.moa.model.dao.AddressDAO;
 import com.moa.model.vo.SimpleAddressVO;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Service
 @NoArgsConstructor
