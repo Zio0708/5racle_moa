@@ -2,21 +2,33 @@ package com.moa.model.vo;
 
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
 import java.util.List;
 
 @Data
 public class StoreBoardFormVO {
+    @NotBlank
     private String hostId;
+    @NotBlank
     private String transactionType;
     private String pet;
+    @NotBlank
     private String cctv;
+    @NotBlank
     private List<String> forbiddenCategoryList;
+    @NotBlank
     private List<String> forbiddenProductList;
+    @NotBlank
     private String storagePeriodType;
+    @NotBlank
     private List<String> price;
+    @NotBlank
     private List<String> pictureName;
+    @NotBlank
     private String title;
+    @NotBlank
     private String content;
+    @NotBlank
     private int storageId;
 
     public StoreBoardFormVO() {	}
