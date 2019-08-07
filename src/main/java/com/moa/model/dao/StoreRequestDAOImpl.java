@@ -1,30 +1,54 @@
 package com.moa.model.dao;
 
+import com.moa.model.vo.ReadStoreRequestVO;
 import com.moa.model.vo.RequestProductVO;
-import com.moa.model.vo.SimpleHostRequestVO;
 import com.moa.model.vo.SimpleUserRequestVO;
-import com.moa.model.vo.StoreRequestVO;
-import com.moa.mybatis.CheckLuggageMapper;
+import com.moa.mybatis.HostStorageMapper;
 import com.moa.mybatis.StoreRequestMapper;
 import lombok.NoArgsConstructor;
 import org.apache.ibatis.session.SqlSession;
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 @NoArgsConstructor
-public class StoreRequestDAOImpl implements StoreRequestDAO {
+public class StoreRequestDAOImpl implements StoreRequestDAO{
     @Autowired
-    @Qualifier("sqlSession_oracle")
-    private SqlSession sqlSession_oracle;
+    private SqlSession sqlSession;
 
+    public ReadStoreRequestVO search(int requestId){
+        StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
+        ReadStoreRequestVO readStoreRequestVO;
+
+        readStoreRequestVO = mapper.searchRequestInfo(requestId);
+        System.out.println(readStoreRequestVO);
+        List<RequestProductVO> productList = new ArrayList<>();
+
+        productList = mapper.searchRequestProduct(requestId);
+        System.out.println(productList);
+
+        for(int i = 0 ; i < productList.size(); i++){
+            readStoreRequestVO.getProductCategory().add(productList.get(i).getProductCategory());
+            readStoreRequestVO.getProductCnt().add(productList.get(i).getProductCnt());
+            readStoreRequestVO.getProductName().add(productList.get(i).getProductName());
+        }
+
+        List<String> pictureList = new ArrayList<>();
+        pictureList = mapper.searchRequestPicture(requestId);
+
+        for(int i = 0 ; i < pictureList.size(); i++){
+            readStoreRequestVO.getPictureList().add(pictureList.get(i));
+        }
+        System.out.println("마지막 테스트 : " + readStoreRequestVO);
+
+        return readStoreRequestVO;
+    }
     public List<SimpleUserRequestVO> searchList(int userId){
-        StoreRequestMapper mapper = sqlSession_oracle.getMapper(StoreRequestMapper.class);
+        StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
         List<SimpleUserRequestVO> simpleList = new ArrayList<SimpleUserRequestVO>();
 
         simpleList = mapper.searchRequestList(userId);
@@ -43,24 +67,5 @@ public class StoreRequestDAOImpl implements StoreRequestDAO {
         }
 
         return simpleList;
-    }
-
-    @Override
-    public int insert(StoreRequestVO storeRequestVO) {
-        CheckLuggageMapper mapper=sqlSession_oracle.getMapper(CheckLuggageMapper.class);
-        mapper.insert(storeRequestVO);
-        return storeRequestVO.getStoreRequestNum();
-    }
-    @Override
-    public List<SimpleHostRequestVO> searchListByHost(Map<String,Object> map){
-        StoreRequestMapper mapper = sqlSession_oracle.getMapper(StoreRequestMapper.class);
-
-        return mapper.searchListByHost(map);
-    }
-    @Override
-    public int searchAllListCnt(Map<String,Object> map){
-        StoreRequestMapper mapper = sqlSession_oracle.getMapper(StoreRequestMapper.class);
-
-        return mapper.searchAllListCnt(map);
     }
 }
