@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/storeBoard")
+@RequestMapping("/storeboard")
 @Controller
 public class StoreBoardController {
     @Autowired
@@ -27,7 +27,7 @@ public class StoreBoardController {
     @Autowired
     private StoreBoardSearchService storeBoard;
 
-    @RequestMapping(value="/storeBoard" , method=  RequestMethod.GET)
+    @RequestMapping(value="" , method=  RequestMethod.GET)
     public String hostSearch(){
         return "hostSearch";
     }
@@ -45,7 +45,7 @@ public class StoreBoardController {
         return "keep";
     }
 
-    @RequestMapping("/keepRegister")
+    @RequestMapping("/keepregister")
     public @ResponseBody
     void registerStoreBoard(HttpServletRequest request) throws ServletException, IOException {
         Map<String, Object> articleMap = FileUpload.keepUpload(request);

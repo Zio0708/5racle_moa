@@ -21,7 +21,7 @@ public class MyPageController {
         return "/myPage";
     }
 
-    @RequestMapping(value="/requestList", method=RequestMethod.GET)
+    @RequestMapping(value="/requestlist", method=RequestMethod.GET)
     public ModelAndView myPageRequestList(){
         ModelAndView mav = new ModelAndView();
         Map<String, Object> map;

@@ -28,6 +28,19 @@
     </resultMap>
 
     <select id="searchEntrust" parameterType="com.moa.model.vo.DetailOptionVO" resultMap="entrustSearchVO">
+        SELECT * FROM SEARCH_BOARD_VIEW SBV
+        JOIN
+        (
+        SELECT ARTICLE_NUM FROM ARTICLE_SEARCH_VIEW
+        WHERE SR_TRANSACTION_TYPE_ID LIKE #{transactionType}
+        AND calc_distance(LATITUDE,LONGITUDE,#{latitude},#{longitude}) <![CDATA[<=]]> #{distance}
+        AND STORAGE_PERIOD_TYPE_ID LIKE #{storagePeriodType}
+        AND PET_FLAG LIKE #{petFlag}
+        AND SECURITY_FACILITY_ID LIKE #{securityFacility}
+        AND STORAGE_TYPE LIKE #{storageType}
+        AND CATEGORY_ID LIKE #{category}
+        )SB
+        USING (ARTICLE_NUM)
         <!--SELECT<include refid="Entrust_columns" /> FROM SEARCH_BOARD_VIEW SBV
         JOIN
         (
@@ -41,7 +54,7 @@
         AND CATEGORY_ID LIKE #{category}
         )SB
         USING (ARTICLE_NUM)-->
-        SELECT * FROM SEARCH_BOARD_VIEW SBV
+        /*SELECT * FROM SEARCH_BOARD_VIEW SBV*/
     </select>
 
     <select id="selectOne" parameterType="int" resultType="hashMap">

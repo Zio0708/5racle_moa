@@ -8,18 +8,20 @@
   <component name="ChangeListManager">
     <list default="true" id="b210646b-9dd6-4a42-ba4d-fcdd9112a083" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/aop/MyAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/aop/MyAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/APIStoreBoardSearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/APIStoreBoardSearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/HostPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/HostPageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/KeepController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/KeepController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/KeepRegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/KeepRegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/com/moa/controller/APIStoreBoardSearchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/com/moa/controller/MyPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/com/moa/controller/MyPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/com/moa/controller/RegistHostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/com/moa/controller/RegistHostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/com/moa/controller/StoreBoardSearchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/mapper/storeBoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/classes/mapper/storeBoardMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/views/hostSearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/moa_war_exploded/WEB-INF/views/hostSearch.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/MyPageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/MyPageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/RegistHostController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/RegistHostController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardSearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardSearchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/moa/message/PathMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/moa/message/PathMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/storeBoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/storeBoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/hostSearch.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/hostSearch.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/moa/controller/APIStoreBoardSearchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/moa/controller/MyPageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/moa/controller/MyPageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/moa/controller/RegistHostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/moa/controller/RegistHostController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/moa/controller/StoreBoardSearchController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/storeBoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/storeBoardMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,19 +46,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/APIStoreBoardSearchController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="20">
-              <caret line="2" column="2" selection-start-line="2" selection-end-line="23" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-238">
-              <caret line="38" column="45" lean-forward="true" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
+            <state relative-caret-position="-98">
+              <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -68,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/KeepController.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
               <folding>
                 <element signature="e#0#369#0" expanded="true" />
               </folding>
@@ -79,8 +72,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/KeepRegisterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-98">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            <state relative-caret-position="20">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -106,17 +99,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/RegistHostController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="400">
-              <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="-738">
+              <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/StoreRequestController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/StoreRequestController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/APIStoreBoardSearchController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="53" column="16" lean-forward="true" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+            <state relative-caret-position="20">
+              <caret line="2" column="2" selection-start-line="2" selection-end-line="23" selection-end-column="3" />
             </state>
           </provider>
         </entry>
@@ -124,8 +126,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/MyPageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+            <state relative-caret-position="280">
+              <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
             </state>
           </provider>
         </entry>
@@ -198,12 +200,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/HostPageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/KeepController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/KeepRegisterController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/MyPageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/RegistHostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/moa/message/PathMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/moa/aop/MyAspect.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/APIStoreBoardSearchController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardSearchController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/MyPageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/RegistHostController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardController.java" />
       </list>
     </option>
@@ -622,7 +624,8 @@
       <workItem from="1564811875056" duration="11909000" />
       <workItem from="1564824895035" duration="8160000" />
       <workItem from="1564931237340" duration="16274000" />
-      <workItem from="1565093993552" duration="3404000" />
+      <workItem from="1565093993552" duration="4062000" />
+      <workItem from="1565172346716" duration="363000" />
     </task>
     <task id="LOCAL-00001" summary="1.임시 제출용">
       <created>1564963570355</created>
@@ -659,17 +662,24 @@
       <option name="project" value="LOCAL" />
       <updated>1565011381767</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="1.임시 제출용_v0.7">
+      <created>1565097443406</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1565097443406</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58715000" />
+    <option name="totallyTimeSpent" value="59736000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25799572" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26066098" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -761,7 +771,8 @@
     <MESSAGE value="1.임시 제출용3" />
     <MESSAGE value="1.임시 제출용_v0.5" />
     <MESSAGE value="1.임시 제출용_v0.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="1.임시 제출용_v0.6" />
+    <MESSAGE value="1.임시 제출용_v0.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="1.임시 제출용_v0.7" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/model/service/MyStorageServiceImpl.java">
@@ -953,16 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/hostSearch.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1760">
-          <caret line="175" column="86" lean-forward="true" selection-start-line="175" selection-start-column="86" selection-end-line="175" selection-end-column="86" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/storeRequestMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -1036,6 +1037,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/hostSearch.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="14" column="60" selection-start-line="14" selection-start-column="60" selection-end-line="14" selection-end-column="60" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/APIStoreBoardSearchController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="20">
@@ -1053,7 +1064,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/KeepController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
           <folding>
             <element signature="e#0#369#0" expanded="true" />
           </folding>
@@ -1062,8 +1073,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/KeepRegisterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="20">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -1076,22 +1087,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/MyPageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="28" column="59" lean-forward="true" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
+        <state relative-caret-position="280">
+          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/RegistHostController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="33" lean-forward="true" selection-start-line="33" selection-end-line="33" />
+        <state relative-caret-position="-738">
+          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/StoreRequestController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="53" column="16" lean-forward="true" selection-start-line="53" selection-start-column="16" selection-end-line="53" selection-end-column="16" />
+        <state relative-caret-position="-98">
+          <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,13 +1116,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/StoreBoardController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/moa/controller/StoreRequestController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-238">
-          <caret line="38" column="45" lean-forward="true" selection-start-line="38" selection-start-column="45" selection-end-line="38" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="260">
+          <caret line="31" column="52" selection-start-line="31" selection-start-column="52" selection-end-line="31" selection-end-column="52" />
         </state>
       </provider>
     </entry>

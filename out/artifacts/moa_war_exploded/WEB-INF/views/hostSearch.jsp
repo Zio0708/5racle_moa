@@ -94,14 +94,14 @@ $(document).ready(function() {
 		    type: 'GET'
 		}).done(function(data)
 			{
-				if(data.length == 0)
+				if(data.documents[0].length == 0)
 				{
 				alert("검색된 정보가 없습니다");
 				}
 				else
 				{
-			    var lan=data[0].y;
-			    var log=data[0].x;
+			    var lan=data.documents[0].y;
+			    var log=data.documents[0].x;
 			    /*var container = document.getElementById('map');
 				var options = {
 					center: new kakao.maps.LatLng(lan, log),
@@ -168,7 +168,7 @@ $(document).ready(function() {
 			 }
 			 for(let i=0;i<data.length;i++){
 				let div = $('<div />', {id:"article"+data[i].articleNum,class : 'room_select'}).appendTo($('#selection_content_id1'));
-				$('<img/>',{src:"${pageContext.request.contextPath}/image/hostSearch/"+data[i].pictureName}).appendTo(div);
+				$('<img/>',{src:"/resources/image/hostSearch/"+data[i].pictureName}).appendTo(div);
 				$('<span/>',{id:'title',text:"보관지 : "+data[i].storageType+"        "}).appendTo(div);
 				$('<i/>',{class:'fas fa-star',style:'font-size:15px;'}).appendTo(div);
 				$('<span/>',{text:" : "+data[i].starPointAvg+" 개"}).appendTo(div);
