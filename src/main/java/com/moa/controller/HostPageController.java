@@ -39,14 +39,14 @@ public class HostPageController {
     }
 
     //승인대기====================================================================
-    @RequestMapping(value = "/confirmYet",method = RequestMethod.GET)
+    @RequestMapping(value = "/confirmyet",method = RequestMethod.GET)
     public String confirmYet(){
         return "confirmyet";
     }
 
 
     @ResponseBody
-    @RequestMapping(value = "/confirmYet/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/confirmyet/list",method = RequestMethod.GET)
     public Map<String, Object> confirmYetUpdate(HttpServletRequest request,
                                                 @RequestParam("curPage") int curPage){
 
@@ -79,7 +79,7 @@ public class HostPageController {
         return result;
     }
 
-    @RequestMapping(value = "/confirmYet/confirm", method= RequestMethod.GET)
+    @RequestMapping(value = "/confirmyet/confirm", method= RequestMethod.GET)
     @ResponseBody
     public boolean confirmCheck(@RequestParam("articleNum") int articleNum,
                              @RequestParam("state") String state){
@@ -98,14 +98,14 @@ public class HostPageController {
     }
 
     //승인완료====================================================================
-    @RequestMapping(value = "/confirmDone",method = RequestMethod.GET)
+    @RequestMapping(value = "/confirmdone",method = RequestMethod.GET)
     public String confirmDone(){
 
         return "confirmdone";
     }
     //승인완료/업데이트
     @ResponseBody
-    @RequestMapping(value = "/confirmDone/list",method = RequestMethod.GET)
+    @RequestMapping(value = "/confirmdone/list",method = RequestMethod.GET)
     public Map<String,Object> confirmDoneUpdate(HttpServletRequest request,
                                                 @RequestParam("curPage") int curPage){
         HttpSession session = request.getSession();//추후 로그인 처리

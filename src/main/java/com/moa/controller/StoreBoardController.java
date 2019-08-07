@@ -31,6 +31,7 @@ public class StoreBoardController {
     public String hostSearch(){
         return "hostSearch";
     }
+
     @RequestMapping(value="/Search" , method=  RequestMethod.POST)
     public @ResponseBody
     List<Object> hostSearch2(DetailOptionVO detail){

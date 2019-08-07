@@ -102,6 +102,8 @@ $(document).ready(function() {
 				{
 			    var lan=data.documents[0].y;
 			    var log=data.documents[0].x;
+			    alert(lan);
+			    alert(log);
 			    /*var container = document.getElementById('map');
 				var options = {
 					center: new kakao.maps.LatLng(lan, log),
@@ -135,11 +137,10 @@ $(document).ready(function() {
 			longitude:log
 		}
 
-		alert(form.lan);
-		alert(form.log);
+
 		 $('#selection_content_id1').empty();
 		 //요주의!!!!
-		 $.ajax("/Search",{
+		 $.ajax("storeboard/Search",{
 		type:"POST",
 		data : form
 		/*{

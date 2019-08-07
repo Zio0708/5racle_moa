@@ -16,12 +16,14 @@ import java.util.Map;
 @Repository
 public class StoreBoardDAOImpl implements StoreBoardDAO {
     @Autowired
-    @Qualifier("sqlSession_oracle")
     private SqlSession sqlSession_oracle;
     @Override
     public List<EntrustSearchVO> searchEntrust(DetailOptionVO detail){
+        System.out.println(detail.getLatitude());
         StoreBoardMapper mapper = sqlSession_oracle.getMapper(StoreBoardMapper.class);
+        System.out.println(mapper);
         List<EntrustSearchVO> entrustAry = mapper.searchEntrust(detail);
+        System.out.println("DAO 완료");
         return entrustAry;
     }
     @Override
