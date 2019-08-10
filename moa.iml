@@ -6,11 +6,10 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/web/WEB-INF/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/out/artifacts/moa_war_exploded/WEB-INF/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
           <file>file://$MODULE_DIR$/out/artifacts/moa_war_exploded/WEB-INF/dispatcher-servlet.xml</file>
+          <file>file://$MODULE_DIR$/web/WEB-INF/dispatcher-servlet.xml</file>
           <file>file://$MODULE_DIR$/out/artifacts/moa_war_exploded/WEB-INF/mybatis-config.xml</file>
           <file>file://$MODULE_DIR$/web/WEB-INF/mybatis-config.xml</file>
-          <file>file://$MODULE_DIR$/src/main/java/com/moa/config/ApplicationConfig.java</file>
         </fileset>
       </configuration>
     </facet>
