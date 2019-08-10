@@ -53,7 +53,7 @@
               </table>
             </div>
             <div class="main_paging">
-              <span>loading...</span>
+                <img src="/resources/image/giphy.gif">
             </div>
 
         </div>

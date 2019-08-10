@@ -12,7 +12,7 @@ body{
   height:1100px;
   padding-top : 50px
 }
-.hostpage_menubar{
+.mypage_menubar{
   position: absolute;
   display: inline-block;
   width: 300px;
@@ -98,6 +98,9 @@ body{
   text-align: center;
   cursor: pointer;
 }
+#table_space{
+  text-align: right;
+}
 .main_title table #table_space{
   border-bottom: 3px solid #bdc3c7;
 }
@@ -106,23 +109,33 @@ body{
   border-collapse: collapse;
   text-align: center;
 }
+
+#title_select{
+  width:5%;
+}
 #title_profile{
-  width:6%;
+  width:5%;
 }
  #title_nick{
-  width:14%;
+  width:21%;
 }
-#title_period{
-  width:15%;
+#title_content{
+  width:43%;
 }
-#title_info{
-  width:25%;
+
+#title_date{
+  width:13%;
 }
-#title_price{
-  width:10%;
+#title_time{
+  width:13%;
 }
-#title_approve{
-  width:10%;
+
+#delete_btn, #add_btn{
+  background : #544667;
+  border-radius: 6px;
+  color : white;
+  border: 0;
+  cursor : pointer;
 }
 
 .main_content table th{
@@ -144,4 +157,8 @@ body{
 .main_paging{
   text-align: center;
   margin-top : 50px;
+}
+.unread td{
+  font-weight: 700;
+  color : #423257;
 }
