@@ -1,13 +1,5 @@
-var num = 1;
+var num = 0;
 
-$(document).ready(function () {
-    $("#content2").hide();
-    $("#content3").hide();
-    $("#content4").hide();
-    $("#content5").hide();
-    $("#content6").hide();
-    $("#content7").hide();
-});
 $(document).ready(function () {
     $("input:radio[name=pet_radio]").click(function () {
         if ($("input[name=pet_radio]:checked").val() == "1") {
@@ -20,16 +12,22 @@ $(document).ready(function () {
 
 function prevForm() {
     var elem = document.getElementById("percent");
-
     switch (num) {
+        case 0:
+            return;
         case 1:
+            $("#content1").hide();
+            $("#content0").show();
+            $("#left_side").hide();
+            elem.style.width = 0 + '%';
+            $("#percent").html("&nbsp;&nbsp;&nbsp;0%");
+            num--;
             return;
         case 2:
             $("#content2").hide();
             $("#content1").show();
-            $("#left_side").hide();
-            elem.style.width = 0 + '%';
-            $("#percent").html("&nbsp;&nbsp;&nbsp;0%");
+            elem.style.width = 10 + '%';
+            $("#percent").html("&nbsp;&nbsp;&nbsp;10%");
             num--;
             return;
         case 3:
@@ -73,6 +71,18 @@ function nextForm() {
     var elem = document.getElementById("percent");
     let i;
     switch (num) {
+        case 0:
+            if($("#storage_address option:selected").val() == 0) {
+                alert("보관 장소를 선택해주세요.");
+                return;
+            }
+            $("#content0").hide();
+            $("#content1").show();
+            $("#left_side").show();
+            elem.style.width = 10 + '%';
+            $("#percent").html("&nbsp;&nbsp;&nbsp;10%");
+            num++;
+            return;
         case 1:
             if (!isValid("trade_type_answer"))
                 return;
@@ -82,7 +92,6 @@ function nextForm() {
                 return;
             $("#content1").hide();
             $("#content2").show();
-            $("#left_side").show();
             elem.style.width = 20 + '%';
             $("#percent").html("&nbsp;&nbsp;&nbsp;20%");
             num++;
@@ -138,10 +147,9 @@ function nextForm() {
                 alert("내용을 입력해주세요.");
                 return;
             }
-
+            $("#right_side").hide();
             $("#content5").hide();
             $("#content6").show();
-            $("#right_side").hide();
             elem.style.width = 100 + '%';
             $("#percent").html("&nbsp;&nbsp;&nbsp;100%");
             num++;
@@ -150,10 +158,6 @@ function nextForm() {
             $("#content6").hide();
             $("#content7").show();
             num++;
-            return;
-        case 7:
-            $("#left_side").hide();
-            $("#right_side").hide();
             return;
     }
 }
@@ -183,11 +187,12 @@ function submitForm() {
             processData: false,
             contentType: false,
             cache: false,
-            success: function (data) {
+            success: function () {
+                $("#left_side").hide();
                 $("#content6").hide();
                 $("#content7").show();
             },
-            error: function (error) {
+            error: function () {
                 console.log("에러 발생");
             }
         });
@@ -284,6 +289,7 @@ function isValid(input) {
 
 $(document).ready(function () {
     $("input:text[numberOnly]").on("focus", function () {
+        // $(".i_price").on("focus", function () {
         var x = $(this).val();
         x = removeCommas(x);
         $(this).val(x);
