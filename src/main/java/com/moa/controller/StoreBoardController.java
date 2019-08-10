@@ -41,19 +41,23 @@ public class StoreBoardController {
 
         return documents;
     }
+
     @RequestMapping("/keep")
-    public String registerStoreBoard() {
-        return "keep";
+    public ModelAndView registerStoreBoard(HttpServletRequest request) {
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName("keep");
+
+        String hostId = "3"; //String hostId = (String)request.getAttribute("hostId");
+        mav.addObject("hostId", hostId);
+        Map<String, Object> map = luggageWelcomeService.initBoard(hostId);
+        mav.addObject("map", map);
+        return mav;
     }
 
     @RequestMapping("/keepregister")
-    public @ResponseBody
-    void registerStoreBoard(HttpServletRequest request) throws ServletException, IOException {
+    public @ResponseBody void keepRegisterStoreBoard(HttpServletRequest request) {
         Map<String, Object> articleMap = FileUpload.keepUpload(request);
-        System.out.println("Controller: " + articleMap);
-        String hostId = "21";
-        System.out.println("Result: " + luggageWelcomeService.noticeStorage(hostId, articleMap));
-
+        System.out.println("Result: " + luggageWelcomeService.noticeStorage(articleMap));
     }
 
     @RequestMapping("/{articleNum}")
