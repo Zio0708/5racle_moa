@@ -138,7 +138,7 @@ public class StoreBoardDAOImpl implements StoreBoardDAO {
         return articleNum;
     }
 
-    public List<EntrustSearchVO> searchEntrust(DetailOptionVO detail){
+    public List<EntrustSearchVO> searchEntrust(DetailOptionVO detail) {
         System.out.println(detail.getLatitude());
         StoreBoardMapper mapper = sqlSession_oracle.getMapper(StoreBoardMapper.class);
         System.out.println(mapper);
