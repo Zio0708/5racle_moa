@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moa.mybatis.ReviewMapper">
+
+        <sql id="selectReview_sel_first">
+            SELECT ROWNUM AS RECNUM, LVL, REVIEW_ARTICLE_NUM ARTICLENO, PARENT_REVIEW_ARTICLE_NUM PARENTNO, (SELECT SUBSTR(CONTENT,1,200) FROM DUAL) CONTENT, NICK, WRITEDATE, STARPOINT, PROFILE
+        </sql>
+
+        <sql id="selectReview_sel_second">
+            SELECT LEVEL AS LVL, REVIEW_ARTICLE_NUM, PARENT_REVIEW_ARTICLE_NUM, CONTENT, UT.NICKNAME AS NICK,WRITE_DATE AS WRITEDATE, STAR_POINT AS STARPOINT, UPIT.PICTURE_NAME AS PROFILE
+        </sql>
+
+        <sql id="selectReview_join">
+            JOIN USER_TB UT USING (USER_ID) JOIN USER_PROFILE_IMAGE_TB UPIT USING(USER_ID)
+        </sql>
+
+        <sql id="selectReview_where">
+            WHERE HOST_ID =(SELECT HOST_ID FROM STORE_BOARD_TB WHERE ARTICLE_NUM=#{articleNum})
+        </sql>
+
+        <sql id="selectReview_paging">
+            START WITH PARENT_REVIEW_ARTICLE_NUM=0
+            CONNECT BY PRIOR REVIEW_ARTICLE_NUM = PARENT_REVIEW_ARTICLE_NUM
+            ORDER SIBLINGS BY REVIEW_ARTICLE_NUM DESC))
+            WHERE RECNUM BETWEEN (#{section}-1)*50+(#{pageNum}-1)*5+1 AND (#{section}-1)*50+#{pageNum}*5
+        </sql>
+
+        <sql id="countReview_where">
+            host_id=(select host_id from store_board_tb where article_num=#{articleNum})
+        </sql>
+
+    <sql id="insertReview_column">
+        REVIEW_ARTICLE_NUM, ARTICLE_NUM,parent_review_article_num, USER_ID, CONTENT, STAR_POINT, HOST_ID
+    </sql>
+
+    <sql id="insertReview_values">
+        AUTO_REVIEW_TB.NEXTVAL, #{articleNum},#{parentNum}, #{userId}, #{comment}, #{rating},
+        (select host_id from store_board_tb where article_num=#{articleNum})
+    </sql>
+
+    <sql id="checkReview_select">
+        count(tht.transaction_history_id) tot,
+        (select count(rt.review_article_num) from review_tb rt where rt.user_id =#{userId} and
+        rt.article_num=#{articleNum}) rev
+    </sql>
+
+    <sql id="checkReview_where">
+        tht.user_id=#{userId} and
+        tht.article_num=#{articleNum}
+    </sql>
+    <resultMap id="selectReviewMap" type="com.example.springmvc.vo.ReviewVO">
+        <id property="articleNO" column="articleNo" jdbcType="NUMERIC"/>
+        <id property="parentNO" column="parentNo" jdbcType="NUMERIC"/>
+        <id property="content" column="content" jdbcType="VARCHAR"/>
+        <id property="nick" column="nick" jdbcType="VARCHAR"/>
+        <id property="writeDate" column="writeDate" jdbcType="DATE"/>
+        <id property="starPoint" column="starPoint" jdbcType="NUMERIC"/>
+        <id property="profile" column="profile" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="selectReviewByPaging"  parameterType="hashMap" resultMap="selectReviewMap">
+        SELECT *
+        FROM ( <include refid="selectReview_sel_first"/>
+        FROM ( <include refid="selectReview_sel_second"/>
+        FROM REVIEW_TB RT <include refid="selectReview_join"/>
+        <include refid="selectReview_where"/>
+        <include refid="selectReview_paging"/>
+    </select>
+
+    <select id="countReview" parameterType="int" resultType="int">
+        select count(review_article_num) as count from review_tb where <include refid="countReview_where"/>
+    </select>
+
+    <insert id="insertReview" parameterType="com.example.springmvc.vo.ReplyVO">
+       INSERT INTO REVIEW_TB (<include refid="insertReview_column"/>)
+        VALUES (<include refid="insertReview_values"/>)
+    </insert>
+
+    <select id="checkReview" parameterType="hashMap" resultType="com.example.springmvc.vo.CheckReviewVO">
+    select <include refid="checkReview_select"/>
+    from transaction_history_tb tht
+    where <include refid="checkReview_where"/>
+    group by tht.user_id
+    </select>
+
+</mapper>

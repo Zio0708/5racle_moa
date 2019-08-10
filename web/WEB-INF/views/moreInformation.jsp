@@ -10,7 +10,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
-<%@ page import="com.example.springmvc.vo.*" %>
+<%@ page import="com.moa.model.vo.*" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <c:set var="articlesList" value="${articlesMap.articlesList}"/>
 <c:set var="totArticles" value="${articlesMap.totArticles}"/>
@@ -18,15 +18,17 @@
 <c:set var="pageNum" value="${articlesMap.pageNum}"/>
 <c:set var="storeBoardVO" value="${storeBoard.storeBoardVO}"/>
 <c:set var="hostReputationVO" value="${storeBoard.hostReputationVO}"/>
+<fmt:formatNumber var="star" value="${hostReputationVO.starPointAvg}" maxFractionDigits="0" />
 <% request.setCharacterEncoding("utf-8");%>
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" ></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/resources/css/more_information.css">
     <link rel="stylesheet"  href="/resources/css/lightslider.css"/>
     <link rel="stylesheet" href="/resources/css/gallery.css">
@@ -35,6 +37,21 @@
     <script src="/resources/js/lightslider.js"></script>
     <script>
         $(document).ready(function() {
+            $('#delete_btn').click(function(){
+                var flag=confirm("정말로 삭제하시겠습니까?");
+                if(flag){
+                    $.post('/storeBoard/${storeBoardVO.articleNum}/delete',function (data) {
+                        if(data==true) {
+                            alert("삭제가 완료되었습니다.");
+                            location.href="/main";
+                        }
+                        else
+                            alert("삭제에 실패하였습니다.");
+                    }).fail(function(){
+                        alert('통신에 장애가 생겼습니다, 잠시뒤 시도해주세요.');
+                    });
+                }
+            });
             $(".img_btn").on("click",function(){
                 $(".gallary_div").css('display','block');
                 $(".gallary_wrap").css('visibility','visible');
@@ -85,14 +102,26 @@
 </div>
 <div class="wrap" id="wrap">
     <div class="wrap_header">
-        <div class="title" id="title">${storeBoardVO.title}</div>
-        <button class="delete_btn btn" id="delete_btn">삭제</button>
+        <div class="title" id="title"><c:out value="${storeBoardVO.title}"></c:out></div>
+        <button class="delete_btn moabtn" id="delete_btn">삭제</button>
     </div>
     <div class="wrap_content">
         <div class="host_info" id='host_info'>
             <div class="id_info info_item" id='id_info'><i class="fas fa-user"></i><div class="info_item_text">${hostReputationVO.nick}</div></div>
             <div class='like_info info_item' id='like_info'><i class="far fa-thumbs-up"></i><div class="info_item_text">${hostReputationVO.favoriteCnt}</div></div>
-            <div class = 'star_info info_item' id='star_info'><i class="far fa-star"></i><div class="info_item_text">${hostReputationVO.starPointAvg}(${hostReputationVO.totalReviewCnt})</div></div>
+            <div class = 'star_info info_item' id='star_info'><i class="far fa-star"></i>
+                <div class="info_item_text">
+                    <c:choose>
+                        <c:when test="${star < 1}">
+                            <c:out value="0"/>
+                        </c:when>
+                        <c:otherwise>
+                            <fmt:formatNumber value="${hostReputationVO.starPointAvg}" pattern=".0"/>
+                        </c:otherwise>
+                    </c:choose>
+                    (${hostReputationVO.totalReviewCnt})
+                </div>
+            </div>
             <div class="summary_info" id='summary_info'>
                 <table class="summary_info_tb" style="width:160px">
                     <tr>
@@ -142,7 +171,7 @@
                     </tr>
                 </table>
             </div>
-            <button class='entrust_btn btn' id='entrust_btn' onclick="location.href='/entrust/${storeBoardVO.articleNum}'">보관해주세요</button>
+            <button class='entrust_btn moabtn' id='entrust_btn' onclick="location.href='/entrust/${storeBoardVO.articleNum}'">보관해주세요</button>
         </div>
 
         <div class="image_info" id='image_info'>
@@ -245,9 +274,54 @@
     <div class="detail_description" id='detail_description'>
         ${storeBoardVO.content}
     </div>
+    <div class="review_class">
+        <div class="review_host_title">리뷰</div>
+        <div class="review_header">
+            <div class="review_host">
+                <div class="review_host_point">
+                    <c:choose>
+                        <c:when test="${star < 1}">
+                            0
+                        </c:when>
+                        <c:otherwise>
+                            <fmt:formatNumber value="${hostReputationVO.starPointAvg}" pattern=".0"/>
+                        </c:otherwise>
+                    </c:choose>
+                </div>
+                <div class="star_icon">
+                    <c:forEach begin="1" end="${star}" step="1">
+                        <i class="fas fa-star"></i>
+                    </c:forEach>
+                </div>
+                <div class="review_host_cnt">${hostReputationVO.totalReviewCnt}명이 리뷰함</div>
+            </div>
+            <div class="review_list">
+
+            </div>
+        </div>
+        <div class="review_footer">
+            <div class="review_paging">
+            </div>
+            <a class="review_btn moabtn btn btn-success btn-green" href="#reviews-anchor" id="open-review-box">리뷰 쓰기</a>
+        </div>
+    </div>
+    <div class="row" id="post-review-box" style="display:none;">
+        <div class="col-md-12">
+            <form name="reviewForm" accept-charset="UTF-8" onsubmit="return false;" method="post">
+                <input id="ratings-hidden" name="rating" type="hidden">
+                <textarea class="form-control animated" cols="50" id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+
+                <div class="text-right">
+                    <div class="stars starrr" data-rating="0"></div>
+                    <a class=" cancle-btn" href="" id="close-review-box" style="display:none; margin-right: 10px;">
+                        <span class="glyphicon glyphicon-remove" id="cancle_btn"></span>&nbsp;취소&nbsp;</a>
+                    <button class="moabtn btn-success " onclick="$.replyReview();return false;">답글달기</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-<script>magnify("prev_image", 3);</script>
-</script>
 <%@ include file="footer.jsp" %>
+<script>magnify("prev_image", 3);</script>
 </body>
 </html>
