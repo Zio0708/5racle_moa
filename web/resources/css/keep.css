@@ -1,30 +1,17 @@
-/* * {
-	margin: 0;
-	padding: 0;
-	text-decoration: none;
-	font-family: "나눔고딕", sans-serif;
-	color: #333333;
-	font-size: 14pt;
-	font-weight: 500;
-} */
-
 .wrap {
-	margin: 0;
-	padding: 0;
 	text-decoration: none;
-	font-family: "나눔고딕", sans-serif;
+	font-family: "NanumGothic", sans-serif;
 	color: #333333;
 	font-size: 14pt;
 	font-weight: 500;
-	/* position: absolute; */
+	margin-bottom: 0;
 	margin-top: 80px;
+	padding: 0;
 	width: 1920px;
 	height: 720px
 }
 
 .main_board {
-	/* overflow: auto;
-	overflow-x: hidden; */
 	position: absolute;
 	width: 980px;
 	height: 540px;
@@ -93,8 +80,4 @@
 	font-weight: bold;
 	font-size: 14pt;
 	background-color: #423257;
-}
-
-.input_p {
-	display: none;
 }
