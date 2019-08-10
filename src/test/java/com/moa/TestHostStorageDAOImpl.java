@@ -76,6 +76,6 @@ public class TestHostStorageDAOImpl {
     }
     @Test
     public void test_요청목록(){
-        storeRequestDAO.searchList(28);
+//        storeRequestDAO.searchList(28);
     }
 }

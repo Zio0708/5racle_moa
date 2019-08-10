@@ -40,4 +40,6 @@ public interface StoreBoardMapper {
     java.util.List<com.moa.model.vo.SimpleStorageBoardVO> searchMyStorage(java.util.Map<java.lang.String,java.lang.Object> map);
 
     int searchMyStorageCnt(int i);
+
+    int deleteOne(int articleNum);
 }

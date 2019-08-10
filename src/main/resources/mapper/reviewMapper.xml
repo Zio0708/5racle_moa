@@ -50,7 +50,7 @@
         tht.user_id=#{userId} and
         tht.article_num=#{articleNum}
     </sql>
-    <resultMap id="selectReviewMap" type="com.example.springmvc.vo.ReviewVO">
+    <resultMap id="selectReviewMap" type="com.moa.model.vo.ReviewVO">
         <id property="articleNO" column="articleNo" jdbcType="NUMERIC"/>
         <id property="parentNO" column="parentNo" jdbcType="NUMERIC"/>
         <id property="content" column="content" jdbcType="VARCHAR"/>
@@ -73,12 +73,12 @@
         select count(review_article_num) as count from review_tb where <include refid="countReview_where"/>
     </select>
 
-    <insert id="insertReview" parameterType="com.example.springmvc.vo.ReplyVO">
+    <insert id="insertReview" parameterType="com.moa.model.vo.ReplyVO">
        INSERT INTO REVIEW_TB (<include refid="insertReview_column"/>)
         VALUES (<include refid="insertReview_values"/>)
     </insert>
 
-    <select id="checkReview" parameterType="hashMap" resultType="com.example.springmvc.vo.CheckReviewVO">
+    <select id="checkReview" parameterType="hashMap" resultType="com.moa.model.vo.CheckReviewVO">
     select <include refid="checkReview_select"/>
     from transaction_history_tb tht
     where <include refid="checkReview_where"/>

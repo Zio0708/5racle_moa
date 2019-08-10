@@ -20,7 +20,35 @@
         <id property="baseAddress" column="BASE_ADDRESS"  />
         <id property="detailAddress" column="DETAIL_ADDRESS"  />
     </resultMap>
+    <sql id ="simple_host_request">
+        STORE_REQUEST_ID articleNum,USER_ID  useId,NICKNAME  nick,
+        PICTURE_NAME  profileImg,PRODUCT_NAME  products,START_DATE  startDate,END_DATE  endDate,
+        TRANSACTION_STATE  state,TRANSACTION_PRICE  price
+    </sql>
+    <select id="searchListByHost" parameterType="hashMap" resultType="com.moa.model.vo.SimpleHostRequestVO">
+        SELECT <include refid="simple_host_request"/> FROM
+        (SELECT * FROM (select ROW_NUMBER() OVER(ORDER BY STORE_REQUEST_ID ASC) AS RW,
+        HOST_ID,STORE_REQUEST_ID, USER_ID,NICKNAME,PICTURE_NAME,PRODUCT_NAME,START_DATE,END_DATE,TRANSACTION_STATE,TRANSACTION_PRICE
+        from HOST_STORE_REQUEST_VIEW  WHERE HOST_ID = #{hostId}
+        <if test="stateType == '승인대기중'">
+            AND TRANSACTION_STATE ='승인대기중'
+        </if>
+        <if test="stateType == null">
+            AND TRANSACTION_STATE!='승인대기중'
+        </if>
+        ) HOST_STORE_REQUEST_VIEW WHERE RW <![CDATA[<=]]> #{lastNum})
+        WHERE RW >= #{firstNum}
+    </select>
 
+    <select id="searchAllListCnt" parameterType="hashMap" resultType="int">
+        SELECT count(*) FROM HOST_STORE_REQUEST_VIEW WHERE host_id = #{hostId}
+        <if test="stateType == '승인대기중'">
+            AND TRANSACTION_STATE ='승인대기중'
+        </if>
+        <if test="stateType == null">
+            AND TRANSACTION_STATE!='승인대기중'
+        </if>
+    </select>
     <select id="searchRequestInfo" parameterType="java.lang.Integer" resultMap="requestInfo_map">
         SELECT *
         FROM STORE_REQUEST_VIEW
@@ -34,7 +62,7 @@
     </select>
 
     <sql id="requestList_columns">
-        STORE_REQUEST_ID, PROFILE_IMAGE_NAME, NICKNAME, START_DATE, END_DATE, MEASURED_PRICE, BASE_ADDRESS, DETAIL_ADDRESS
+        NUMROW, STORE_REQUEST_ID, PROFILE_IMAGE_NAME, NICKNAME, START_DATE, END_DATE, BARGAIN_PRICE, MEASURED_PRICE, BASE_ADDRESS, DETAIL_ADDRESS
     </sql>
 
     <resultMap id="requestList_map" type="com.moa.model.vo.SimpleUserRequestVO">
@@ -43,15 +71,21 @@
         <id property="hostNick" column="NICKNAME"  />
         <id property="startDate" column="START_DATE"  />
         <id property="endDate" column="END_DATE"  />
-        <id property="bargainPrice" column="MEASURED_PRICE"  />
+        <id property="bargainPrice" column="BARGAIN_PRICE"  />
+        <id property="measuredPrice" column="MEASURED_PRICE"  />
         <id property="baseAddress" column="BASE_ADDRESS"  />
         <id property="detailAddress" column="DETAIL_ADDRESS"  />
     </resultMap>
 
-    <select id="searchRequestList" parameterType="java.lang.Integer" resultMap="requestList_map">
+    <select id="searchRequestList" parameterType="map" resultMap="requestList_map">
         SELECT <include refid="requestList_columns" />
-        FROM STORE_REQUEST_VIEW
-        WHERE USER_ID = #{userId}
+        FROM (
+            select rownum numrow, A.*
+            from STORE_REQUEST_VIEW A
+            WHERE USER_ID = #{userId}
+            order by APPLICATION_DATE desc
+        )
+        where numrow between ((#{pageNum}-1) * 10 + 1) and (#{pageNum} * 10)
     </select>
 
     <sql id="requestProductList_columns">
@@ -68,6 +102,10 @@
         SELECT <include refid="requestProductList_columns" />
         FROM STORE_REQUEST_PRODUCT_VIEW
         WHERE STORE_REQUEST_ID = #{requestId}
+    </select>
+    
+    <select id="searchRequestListCount" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        select (count(*) / 10 + 1) from STORE_REQUEST_VIEW WHERE USER_ID = #{userId}
     </select>
 
 </mapper>
