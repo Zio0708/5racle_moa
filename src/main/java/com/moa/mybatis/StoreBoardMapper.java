@@ -1,33 +1,43 @@
+
+  // IntelliJ API Decompiler stub source generated from a class file
+  // Implementation of methods is not available
+
 package com.moa.mybatis;
 
-import com.moa.model.vo.DetailOptionVO;
-import com.moa.model.vo.EntrustSearchVO;
-import com.moa.model.vo.SimpleStorageAddressVO;
-import com.moa.model.vo.SimpleStorageBoardVO;
-
-import java.util.List;
-import java.util.Map;
-
 public interface StoreBoardMapper {
-    List<SimpleStorageAddressVO> selectStorages(int hostId);
-    List<String> selectTransaction();
-    List<String> selectCategory();
-    List<String> selectStoragePeriod();
-    List<String> selectPrice();
+    java.util.List<com.moa.model.vo.SimpleStorageAddressVO> selectStorages(int i);
 
-    Map<String, Object> selectParameters(Map<String, Object> map);
-    int insertIntoStoreBoard(Map<String, Object> map);
-    int insertIntoPetType(Map<String, Object> map);
-    int insertIntoSF_SB(Map<String, Object> map);
-    int insertIntoSBAttachedPicture(Map<String, Object> map);
-    int insertIntoDetailPriceFibo(Map<String, Object> map);
-    int selectCategoryId(String category);
-    int insertIntoForbiddenProduct(Map<String, Object> map);
-    int deleteOne(int articleNum);
+    java.util.List<java.lang.String> selectTransaction();
 
-    Map<String,Object> selectOne(int articleNum);
-    List<String> selectDetailPrice();
-    List<EntrustSearchVO> searchEntrust(DetailOptionVO detail);
-    List<SimpleStorageBoardVO> searchMyStorage(Map<String,Object> storageInfo);
-    int searchMyStorageCnt(int hostId);
+    java.util.List<java.lang.String> selectCategory();
+
+    java.util.List<java.lang.String> selectStoragePeriod();
+
+    java.util.List<java.lang.String> selectPrice();
+
+    java.util.Map<java.lang.String,java.lang.Object> selectParameters(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    int insertIntoStoreBoard(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    int insertIntoPetType(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    int insertIntoSF_SB(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    int insertIntoSBAttachedPicture(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    int insertIntoDetailPriceFibo(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    int selectCategoryId(java.lang.String s);
+
+    int insertIntoForbiddenProduct(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    java.util.Map<java.lang.String,java.lang.Object> selectOne(int i);
+
+    java.util.List<java.lang.String> selectDetailPrice();
+
+    java.util.List<com.moa.model.vo.EntrustSearchVO> searchEntrust(com.moa.model.vo.DetailOptionVO detailOptionVO);
+
+    java.util.List<com.moa.model.vo.SimpleStorageBoardVO> searchMyStorage(java.util.Map<java.lang.String,java.lang.Object> map);
+
+    int searchMyStorageCnt(int i);
 }
