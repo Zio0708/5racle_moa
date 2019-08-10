@@ -11,4 +11,7 @@ public class MainController {
         int a= 2;
         return "test";
     }
+    public void azxc(){
+        int asd=23;
+    }
 }
