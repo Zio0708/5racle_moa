@@ -92,7 +92,7 @@
             </div>
             <div class="main_bottom">
                 <div class="main_paging">
-                    <span>loading...</span>
+                    <img src="/resources/image/giphy.gif">
                 </div>
             </div>
 

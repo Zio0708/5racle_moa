@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.moa.mybatis.MessengerMapper">
+    <select id="searchOneMessage" parameterType="int" resultType="com.moa.model.vo.MessageVO">
+        SELECT
+          RECEIVER_ID receiverId, nickname receiverNick, sender_id senderId,
+        SENDER_NICK senderNick,CONTENT content,SENDER_DEL_FLAG senderDelFlag,
+        RECIPIENT_DEL_FLAG recipientDelFlag,SEND_DATE sendDate,MESSAGE_ID messageId,READ_STATE readState,
+        To_char(send_date, 'YYYY-MM-DD') sendDate , To_char(send_date, 'hh:mi:ss') sendTime
+
+        FROM MESSAGE_TB_VIEW  WHERE MESSAGE_ID = #{messageId}
+    </select>
+    <select id="searchAllMessageCnt" parameterType="hashMap" resultType="int">
+        SELECT count(*) FROM message_tb_view
+        WHERE
+        <if test="messageType == 'send'">
+            SENDER_ID = #{userId}
+            AND SENDER_DEL_FLAG = 0
+        </if>
+        <if test="messageType == 'receive'">
+            RECEIVER_ID = #{userId}
+            AND RECIPIENT_DEL_FLAG =0
+        </if>
+        <choose>
+            <when test="readState == null">
+
+            </when>
+            <when test="readState == 'read'">
+                AND READ_STATE = 1
+            </when>
+            <when test="readState == 'unread'">
+                AND READ_STATE = 0
+            </when>
+        </choose>
+
+    </select>
+    <select id="searchMessage" parameterType="hashMap" resultType="com.moa.model.vo.MessageVO">
+        SELECT
+        RECEIVER_ID receiverId,RECEIVER_NICK receiverNick,
+        To_char(send_date, 'YYYY-MM-DD') sendDate , To_char(send_date, 'hh:mi:ss') sendTime,
+        SENDER_NICK senderNick,CONTENT content,SENDER_DEL_FLAG senderDelFlag,
+        RECIPIENT_DEL_FLAG recipientDelFlag,SEND_DATE sendDate,MESSAGE_ID messageId,READ_STATE readState
+         FROM
+        (
+        SELECT * FROM
+        (
+        select
+        ROW_NUMBER() OVER(ORDER BY MESSAGE_ID DESC) AS RW,
+        RECEIVER_ID,NICKNAME RECEIVER_NICK,SENDER_ID,
+        SENDER_NICK,CONTENT,SENDER_DEL_FLAG,RECIPIENT_DEL_FLAG,
+        SEND_DATE,MESSAGE_ID,READ_STATE
+        from message_tb_view WHERE
+        <if test="messageType == 'send'">
+            SENDER_ID = #{userId}
+            AND SENDER_DEL_FLAG = 0
+        </if>
+        <if test="messageType == 'receive'">
+            RECEIVER_ID = #{userId}
+            AND RECIPIENT_DEL_FLAG =0
+        </if>
+
+        <choose>
+            <when test="readState == null">
+
+            </when>
+            <when test="readState == 'read'">
+                AND READ_STATE = 1
+            </when>
+            <when test="readState == 'unread'">
+                AND READ_STATE = 0
+            </when>
+        </choose>
+        )
+        message_tb_view
+        WHERE RW <![CDATA[<=]]> #{lastNum}
+        )
+        WHERE RW >= #{firstNum}
+
+    </select>
+
+    <update id="updateReadState" parameterType="int">
+         UPDATE MESSAGE_RECIPIENT_TB SET READ_STATE = 1 WHERE MESSAGE_ID = #{messageNum}
+    </update>
+
+    <update id="deleteMessage" parameterType="hashMap">
+         UPDATE MESSAGE_TB
+         SET
+         <choose>
+             <when test="messageType == 'send'">
+                 SENDER_DEL_FLAG = 1
+             </when>
+             <when test="messageType == 'receive'">
+                 RECIPIENT_DEL_FLAG = 1
+             </when>
+         </choose>
+         WHERE MESSAGE_ID = #{messageNum}
+    </update>
+</mapper>

@@ -64,6 +64,12 @@ $.storageList = function(curPage){
 			//페이징처리
 			$('.main_paging>span').remove('span');
 			$('.main_paging>i').remove('i');
+			$('.main_paging>img').remove('img');
+
+			if(result.pagination.endPage == 0){
+				$('<span/>',{text : "승인완료된 요청이 없습니다.",style:'font-weight:bold;'}).appendTo('.main_paging');
+				return;
+			}
 			if(curPage == 1){
 				$('<i/>',{class:"fas fa-angle-left",text:"\u00A0\u00A0"}).appendTo('.main_paging');
 			}
@@ -75,12 +81,12 @@ $.storageList = function(curPage){
 
 			for(let i = result.pagination.startPage; i <= result.pagination.endPage; i++ ){
 				if(i == curPage){
-					$('<span/>',{text : i+"\u00A0\u00A0",style:'font-weight:bold;cursor:pointer;'}).click(function(e){
+					$('<span/>',{text : i+"\u00A0\u00A0",style:'font-weight:bold;'}).click(function(e){
 						$.storageList(i);
 					}).appendTo('.main_paging');
 				}
 				else{
-					$('<span/>',{text : i+"\u00A0\u00A0",}).click(function(e){
+					$('<span/>',{text : i+"\u00A0\u00A0",style:"cursor:pointer;"}).click(function(e){
 						$.storageList(i);
 					}).appendTo('.main_paging');
 				}

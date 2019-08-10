@@ -54,7 +54,8 @@
             </div>
 
             <div class="main_paging">
-                <span>loading...</span>
+                <img src="/resources/image/giphy.gif">
+                <span></span>
             </div>
 
         </div>

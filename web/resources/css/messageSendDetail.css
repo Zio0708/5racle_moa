@@ -1,0 +1,42 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.title_left{
+  width: 20%;
+  font-weight: bold;
+}
+.title_right{
+  width: 80%;
+  text-align: left;
+}
+table{
+  width:450px;
+  margin: auto;
+}
+
+.content_text{
+  width: 450px;
+  height: 370px;
+  display: block;
+  margin: 10px auto;
+  resize: none;
+}
+.content_text:disabled{
+  background: white;
+}
+.bottom{
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+.bottom button{
+  width: 70px;
+  height: 30px;
+  background: #534A6D;
+  color: white;
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+  cursor: pointer;
+}

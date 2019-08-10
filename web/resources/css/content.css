@@ -1,44 +1,9 @@
-.content0 {
-  width: 100%;
-  height: 100%;
+.content1{
+	width: 100%;
+	height: 100%;
 }
 
-.head_0 {
-  text-align: center;
-  color: #423257;
-  font-size: 30pt;
-  font-weight: bold;
-  margin-top: 160px;
-  margin-bottom: 60px;
-}
-
-.storage_type {
-  width: 100%;
-  margin: 0 auto;
-}
-
-.storage_select {
-  width: 600px;
-  height: 40px;
-  margin: 0 200px;
-  text-align-last: center;
-  font-size: 21px;
-  font-weight: bold;
-}
-
-.storage {
-  width: 600px;
-  height: 40px;
-  font-size: 21px;
-  font-weight: bold;
-}
-
-.content1 {
-  width: 100%;
-  height: 100%;
-}
-
-.head_1 {
+.head_1{
   text-align: center;
   color: #423257;
   font-size: 21pt;
@@ -46,30 +11,34 @@
   margin: 40px;
 }
 
-.deliver_type {
+.deliver_type{
   width: 100%;
   margin-left: 290px;
   margin-bottom: 80px;
 }
 
-.deliver {
+.deliver{
   display: inline-block;
   width: 150px;
 }
 
-.pet_type {
+.xorqo{
+	margin-left: 10px;
+}
+
+.pet_type{
   width: 80%;
   margin-left: 156px;
   margin-bottom: 80px;
 }
 
-.pet {
+.pet{
   display: inline-block;
   width: 60%;
   margin-left: 140px;
 }
 
-.pet_text {
+.pet_text{
   margin-right: 65px;
   margin-left: 30px;
   width: 160px;
@@ -80,23 +49,25 @@
 }
 
 
-.cctv_type {
+.cctv_type{
   float: left;
   margin-left: 300px;
   margin-bottom: 80px;
 }
 
-.cctv {
+.cctv{
   display: inline-block;
   width: 400px;
 }
 
-.cctv_r {
-  margin-left: 265px;
+.cctv_r{
+	margin-left: 250px;
 }
 
-.head_2 {
+
+.head_2{
   text-align: center;
+  margin-bottom: 20px;
   color: #423257;
   font-size: 22pt;
   font-weight: bold;
@@ -105,52 +76,44 @@
   margin-bottom: 40px;
 }
 
-.content2 table {
+.content2 table{
   border-collapse: separate;
   border-spacing: 30px 15px;
 }
 
-.entrust_product_tb {
+.entrust_product_tb{
   position: relative;
-  left: 10%;
+  left:10%;
 }
 
-.table_head {
-  width: 200px;
-  font-size: 18pt;
+.table_head{
+	width: 200px;
+	font-size: 18pt;
 }
 
-.table_data {
-  font-family: "나눔고딕", sans-serif;
-  font-size: 16pt;
-  font-weight: bold;
-  text-align: center;
-}
+ .table_data{
+ 	font-family: "나눔고딕", sans-serif;
+ 	font-size: 16pt;
+ 	font-weight: bold;
+ 	text-align: center;
+ }
 
-.category_list, .product_name {
-  font-size: 17px;
-  font-weight: bold;
-  width: 140px;
-  height: 30px;
-  padding-left: 5px;
-}
-
-.content2 i {
-  color: #423257;
+.content2 i{
+  color:#423257;
   position: relative;
   font-size: 40px;
-  left: 50%;
-  top: 50%;
+  left:50%;
+  top:50%;
   cursor: pointer;
 }
 
 
-.content3 {
-  width: 100%;
-  height: 100%;
+.content3{
+	width: 100%;
+	height: 100%;
 }
 
-.head_3 {
+.head_3{
   text-align: center;
   color: #423257;
   font-size: 21pt;
@@ -158,19 +121,19 @@
   margin: 30px;
 }
 
-.time_type {
+.time_type{
   display: inline-block;
   margin-left: 250px;
   margin-bottom: 40px;
   width: 800px;
 }
 
-.time {
+.time{
   float: left;
   margin: 0 10px;
 }
 
-.price_type {
+.price_type{
   width: 400px;
   height: 100%;
   margin-left: 230px;
@@ -178,39 +141,42 @@
 }
 
 .prices ul {
-  display: inline-block;
-  margin-bottom: 0px;
+	display: inline-block;
+	margin-bottom: 0px;
 }
 
-.price {
+.price{
   width: 150px;
   text-align: center;
 }
 
-.i_price {
+.i_price{
   width: 140px;
   height: 24px;
   text-align: center;
   margin-left: 40px;
-  font-size: 17px;
-  font-weight: bold;
+  font-size: 14px;
 }
 
-ul {
+ul{
   list-style-type: none;
+  /* float: left; */
   width: 100%;
 }
 
-li {
+li{
+  float: left;
   margin: 6px;
 }
 
-.content4 {
-  width: 100%;
-  height: 100%;
+
+.content4{
+	width: 100%;
+	height: 100%;
 }
 
-.head_4 {
+.head_4{
+  text-align: center;
   margin: 30px;
   font-size: 21pt;
   font-weight: bold;
@@ -218,7 +184,7 @@ li {
   color: #423257;
 }
 
-.head_4_1 {
+.head_4_1{
   text-align: center;
   margin-bottom: 30px;
   font-size: 16pt;
@@ -226,39 +192,40 @@ li {
   color: #423257;
 }
 
-.photo_type {
-  margin-left: 185px;
-  margin-bottom: 5px;
+.photo_type{
+	margin-left: 185px;
+	margin-bottom: 5px;
 }
 
-.photo_main {
+.photo_main{
   width: 260px;
   height: 180px;
   margin: 0px 20px;
 }
 
-.photo_type2 {
+.photo_type2{
   margin-left: 187px;
   margin-bottom: 10px;
 }
 
-.photo_etc {
+.photo_etc{
   width: 180px;
   height: 120px;
   margin-left: 10px;
 }
 
-img:hover {
+img:hover{
   opacity: 0.5;
   cursor: pointer;
 }
 
-.content5 {
-  width: 100%;
-  height: 100%;
+
+.content5{
+	width: 100%;
+	height: 100%;
 }
 
-.head_5 {
+.head_5{
   text-align: center;
   margin: 20px;
   color: #423257;
@@ -266,7 +233,7 @@ img:hover {
   font-weight: bold;
 }
 
-.post_title {
+.post_title{
   font-family: "나눔고딕", sans-serif;
   font-weight: bold;
   width: 80%;
@@ -274,29 +241,31 @@ img:hover {
   border-radius: 0;
   margin-left: 100px;
   color: #333333;
-  font-size: 14pt;
+  font-size: 12pt;
   padding-left: 3px;
   margin-bottom: 20px;
 }
 
-.post_contents {
+.post_contents{
   font-family: "나눔고딕", sans-serif;
   font-weight: bold;
   width: 80%;
   border-radius: 0;
   margin-left: 100px;
   color: #333333;
-  font-size: 14pt;
+  font-size: 12pt;
   padding: 4px;
 }
 
-.content6 {
-  width: 100%;
-  height: 100%;
+
+.content6{
+	width: 100%;
+	height: 100%;
 }
 
-.head_6 {
+.head_6{
   text-align: center;
+  margin: 5px;
   margin-top: 25px;
   margin-bottom: 10px;
   color: #423257;
@@ -304,7 +273,7 @@ img:hover {
   font-weight: bold;
 }
 
-.head_6_1 {
+.head_6_1{
   margin-top: 30px;
   margin-left: 130px;
   font-size: 16pt;
@@ -313,8 +282,8 @@ img:hover {
   color: #423257;
 }
 
-.caution {
-  font-family: "NanumGothic", sans-serif;
+.caution{
+  font-family: "나눔고딕", sans-serif;
   font-weight: bold;
   width: 740px;
   border: none;
@@ -326,24 +295,24 @@ img:hover {
   line-height: 180%;
 }
 
-.confirm {
+.confirm{
   margin-left: 70px;
-  text-align: right;
+  text-align:right;
   width: 800px;
 }
 
-.content6_ul {
+.content6_ul{
   display: inline-block;
   list-style-type: none;
   width: 80%;
 }
 
-.content6_li {
+.content6_li{
   color: #423257;
   float: right;
 }
 
-.register_btn {
+.register_btn{
   cursor: pointer;
   width: 250px;
   height: 40px;
@@ -353,17 +322,18 @@ img:hover {
   border-radius: 6px;
   font-weight: normal;
   font-size: 14px;
-  text-align: center;
+  text-align;
   margin-top: 45px;
   margin-left: 380px;
 }
 
-.content7 {
-  width: 100%;
-  height: 100%;
+
+.content7{
+	width: 100%;
+	height: 100%;
 }
 
-.head_7 {
+.head_7{
   text-align: center;
   font-weight: bold;
   color: #423257;
@@ -372,27 +342,23 @@ img:hover {
   font-size: 40px;
 }
 
-.head_7_1 {
+.head_7_1{
   margin-bottom: 120px;
-  margin-top: 180px;
+  margin-top: 40px;
   color: #423257;
-  font-size: 36px;
+  font-size: 28px;
   text-align: center;
 }
 
-.finished {
-  width: 260px;
+.finished{
+  width: 300px;
   height: 40px;
   color: white;
   background-color: #423257;
   border: none;
-  border-radius: 5px;
   font-weight: normal;
   font-size: 14px;
-  text-align: center;
-  margin-left: 360px;
+  text-align;
+  margin-left: 370px;
 }
 
-.input_p {
-  display: none;
-}

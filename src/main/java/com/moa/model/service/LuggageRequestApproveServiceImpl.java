@@ -10,13 +10,7 @@ import java.util.Map;
 public class LuggageRequestApproveServiceImpl {
 	@Autowired
 	private TransactionDAOImpl transactionDAO;
-	
-//	public LuggageRequestApproveServiceImpl() {
-//		transactionDAO = new TransactionDAOImpl();
-//	}
-//	public LuggageRequestApproveServiceImpl(TransactionDAOImpl transactionDAO) {
-//		this.transactionDAO = transactionDAO;
-//	}
+
 	
 	public boolean updateTransactionHistory(Map<String, Object> transactionInfo) {
 
