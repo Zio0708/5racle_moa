@@ -184,4 +184,10 @@ public class StoreBoardDAOImpl implements StoreBoardDAO {
         System.out.println("7: "+ (endTime-startTime)/1000000000);
         return articleNum;
     }
+
+    @Override
+    public int delete(int articleNum) {
+        StoreBoardMapper mapper=sqlSession_oracle.getMapper(StoreBoardMapper.class);
+        return mapper.deleteOne(articleNum);
+    }
 }

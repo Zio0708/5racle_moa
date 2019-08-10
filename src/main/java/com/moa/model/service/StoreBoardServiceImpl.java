@@ -30,4 +30,8 @@ public class StoreBoardServiceImpl implements StoreBoardService{
         //selectMap.put("reviewList", reviewList);
         return selectMap;
     }
+    @Override
+    public boolean deleteStorage(int articleNum) {
+        return storeBoardDAO.delete(articleNum)>0? true:false;
+    }
 }

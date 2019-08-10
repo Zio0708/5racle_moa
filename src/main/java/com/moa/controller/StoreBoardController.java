@@ -71,4 +71,10 @@ public class StoreBoardController {
         mav.addObject("message","존재하지 않는 페이지 입니다.");
         return mav;
     }
+
+    @RequestMapping(value="/{articleNum}/delete",method = RequestMethod.POST)
+    public @ResponseBody boolean removeStoreBoard(@PathVariable("articleNum") int articleNum){
+        boolean flag = storeBoardService.deleteStorage(articleNum);
+        return flag;
+    }
 }

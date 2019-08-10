@@ -15,4 +15,6 @@ public interface StoreBoardDAO {
     int searchMyStorageCnt(int hostId);
 
     int insert(StoreBoardFormVO storeBoardFormVO);
+
+    int delete(int articleNum);
 }

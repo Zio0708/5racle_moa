@@ -22,4 +22,5 @@ public interface StoreBoardMapper {
     int insertIntoDetailPriceFibo(Map<String, Object> map);
     int selectCategoryId(String category);
     int insertIntoForbiddenProduct(Map<String, Object> map);
+    int deleteOne(int articleNum);
 }
