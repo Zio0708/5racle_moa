@@ -93,7 +93,7 @@ local.properties
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
-
+out/*
 # Gradle
 .idea/**/gradle.xml
 .idea/**/libraries
