@@ -61,7 +61,7 @@
         <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/hostSearch.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="169">
-              <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+              <caret line="30" column="50" lean-forward="true" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -73,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/web/resources/css/hostSearch.css">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
-              <caret line="419" column="36" selection-start-line="419" selection-start-column="36" selection-end-line="419" selection-end-column="36" />
+              <caret line="419" column="36" lean-forward="true" selection-start-line="419" selection-start-column="36" selection-end-line="419" selection-end-column="36" />
               <folding>
                 <element signature="e#28#88#0" />
                 <element signature="e#100#200#0" />
@@ -262,7 +262,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="21" />
     <option name="y" value="32" />
     <option name="width" value="1932" />
@@ -281,6 +281,17 @@
             <path>
               <item name="moa" type="b2602c69:ProjectViewProjectNode" />
               <item name="moa" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moa" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="moa" type="b2602c69:ProjectViewProjectNode" />
+              <item name="moa" type="462c0819:PsiDirectoryNode" />
+              <item name=".idea" type="462c0819:PsiDirectoryNode" />
+              <item name="artifacts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="moa" type="b2602c69:ProjectViewProjectNode" />
@@ -652,7 +663,7 @@
       <workItem from="1565183498566" duration="1140000" />
       <workItem from="1565259655951" duration="8789000" />
       <workItem from="1565350230365" duration="5036000" />
-      <workItem from="1565407985017" duration="6012000" />
+      <workItem from="1565407985017" duration="5412000" />
     </task>
     <task id="LOCAL-00001" summary="1.임시 제출용">
       <created>1564963570355</created>
@@ -753,10 +764,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90574000" />
+    <option name="totallyTimeSpent" value="89974000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26865673" />
@@ -1210,7 +1221,7 @@
     <entry file="file://$PROJECT_DIR$/web/resources/css/hostSearch.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
-          <caret line="419" column="36" selection-start-line="419" selection-start-column="36" selection-end-line="419" selection-end-column="36" />
+          <caret line="419" column="36" lean-forward="true" selection-start-line="419" selection-start-column="36" selection-end-line="419" selection-end-column="36" />
           <folding>
             <element signature="e#28#88#0" />
             <element signature="e#100#200#0" />
@@ -1239,7 +1250,7 @@
     <entry file="file://$PROJECT_DIR$/web/WEB-INF/views/hostSearch.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="169">
-          <caret line="30" column="50" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
+          <caret line="30" column="50" lean-forward="true" selection-start-line="30" selection-start-column="50" selection-end-line="30" selection-end-column="50" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
           </folding>

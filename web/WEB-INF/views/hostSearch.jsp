@@ -16,8 +16,95 @@
 
 <script>
 
+	function roomSelect(articleNum) {
+	alert(articleNum);
+}
+
+
 $(document).ready(function() {
-	
+
+	$('input[name="category"]').click(function() {
+		for(let iv=0 ; iv<11;iv++) {
+			alert($('input[id=("ct"+"das")]').val());
+		}
+	});
+	$('input[name="category"]').click(function() {
+		alert($(this).val());
+		alert($('input[name="category"]').val());
+		alert($(this).prop('checked'));
+		$(this).prev().css('background-color','RED');
+		$(this).next().css('background-color','RED');
+		$(this).css('background-color','RED');
+
+		/*for(let i =1;i<11;i++) {
+			var con = document.getElementById('ct' + i);
+			if (con.prop('checked')) {
+				$('#category2>label').style.backgroundColor = 'BLUE';
+			} else {
+				$('#category2>label').style.backgroundColor = 'WHITE';
+			}
+		}*/
+	});
+	$('#categoryBtn').click(function() {
+		var con =  document.getElementById('category');
+		if(con.style.display=='none'){
+			con.style.display = 'block';
+			//con.style.backgroundColor ='BLUE';
+		}else{
+			con.style.display = 'none';
+		}
+
+	});
+	$('#rangeBtn').click(function() {
+		var con =  document.getElementById('range-slider');
+		if(con.style.display=='none'){
+			con.style.display = 'block';
+		}else{
+			con.style.display = 'none';
+		}
+
+	});
+
+
+	var rangeSlider = function(){
+		var slider = $('#range-slider'),
+				range = $('#range-slider__range'),
+				value = $('#range-slider__value');
+
+		slider.each(function(){
+
+			value.each(function(){
+				var value = $(this).prev().attr('value');
+				$(this).html(value+"km 이내");
+			});
+
+			range.on('input', function(){
+				$(this).next(value).html(this.value+"km 이내");
+			});
+		});
+	};
+
+	rangeSlider();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	$('.mapBtn').click(function() {
 		
 		let map = $('.selection_wrapper');
@@ -25,9 +112,15 @@ $(document).ready(function() {
 		$(".map_wrapper").css("left", "730px");
 		$('#map').width('1174px');
 	});
-	
-	
-	
+	/*$('.room_select').click(function(){
+		alert("이동합니다");
+	});
+	$('.selection_wrapper>div').click(function(){
+		alert("안쪽망함으로 이동합니다");
+	});*/
+
+
+
 	var container = document.getElementById('map');
 	var options = {
 		center: new kakao.maps.LatLng(33.450701, 126.570667),
@@ -102,8 +195,7 @@ $(document).ready(function() {
 				{
 			    var lan=data.documents[0].y;
 			    var log=data.documents[0].x;
-			    alert(lan);
-			    alert(log);
+			    alert(data);
 			    /*var container = document.getElementById('map');
 				var options = {
 					center: new kakao.maps.LatLng(lan, log),
@@ -168,7 +260,7 @@ $(document).ready(function() {
 
 			 }
 			 for(let i=0;i<data.length;i++){
-				let div = $('<div />', {id:"article"+data[i].articleNum,class : 'room_select'}).appendTo($('#selection_content_id1'));
+				let div = $('<div />', {id:"article"+data[i].articleNum,class : 'room_select',onclick:"roomSelect("+data[i].articleNum+");"}).appendTo($('#selection_content_id1'));
 				$('<img/>',{src:"/resources/image/hostSearch/"+data[i].pictureName}).appendTo(div);
 				$('<span/>',{id:'title',text:"보관지 : "+data[i].storageType+"        "}).appendTo(div);
 				$('<i/>',{class:'fas fa-star',style:'font-size:15px;'}).appendTo(div);
@@ -319,8 +411,7 @@ window.onload = function(){
 	  select_.onchange();
 	  salir_select(selc); 
 	}
-
-	$(document).on("click",".guideBox > p",function(){
+/*$(document).on("click",".guideBox > p",function(){
 	      if($(this).next().css("display")=="none"){
 	        $(this).next().show();
 	        $(this).children("span").text("[닫기]");
@@ -329,8 +420,8 @@ window.onload = function(){
 	        $(this).children("span").text("[열기]");
 	      }
 	});
-	
-	
+	*/
+
 	
 	
 	
@@ -347,7 +438,7 @@ window.onload = function(){
 			<!-- 검색창 --> 
 			<!--  <form class=map_searchbar>-->
 			<div class="search_wrapper">
-			<input class="search_input" type="search" placeholder="검색1(시/군/구..)"/>
+			<input class="search_input" type="search" placeholder="원하시는 장소를 검색하세요"/>
 			<button class="search_btn" value="검색">
 			</button>
 			</div>
@@ -355,8 +446,49 @@ window.onload = function(){
 				
 				
 			<div class="select_wrapper">
-		  	<!-- 카테고리 --> 
-			<div class="select_mate" data-mate-select="active" >
+		  	<!-- 카테고리 -->
+				<button name="전체"  id="categoryBtn" value="전체">카테고리
+					<i class="fas fa-angle-down" style="margin-left: 50px; font-size: 19px;"></i></button>
+				<div class="category"  id="category" style="display:none;">
+					<div id="category2">
+						<label for="ct%"><input type="checkbox" name="category" value="%" id="ct%">
+							전체</label>
+					</div>
+					<div id="category2">
+						<label for="ct1"><input type="checkbox" name="category" value="1" id="ct1"> 의류</label>
+					</div>
+					<div id="category2">
+						<label for="ct2"><input type="checkbox" name="category" value="2" id="ct2"> 도서</label>
+					</div>
+					<div id="category2">
+						<label for="ct3"><input type="checkbox" name="category" value="3" id="ct3"> 패션잡화</label>
+					</div>
+					<div id="category2">
+						<label for="ct4"><input type="checkbox" name="category" value="4" id="ct4"> 페브릭</label>
+					</div>
+					<div id="category2">
+						<label for="ct5"><input type="checkbox" name="category" value="5" id="ct5"> 소형가전</label>
+					</div>
+					<div id="category2">
+						<label for="ct6"><input type="checkbox" name="category" value="6" id="ct6"> 취미용품</label>
+					</div>
+					<div id="category2">
+						<label for="ct7"><input type="checkbox" name="category" value="7" id="ct7"> 캠핑용품</label>
+					</div>
+					<div id="category2">
+						<label for="ct8"><input type="checkbox" name="category" value="8" id="ct8"> 유아용품</label>
+					</div>
+					<div id="category2">
+						<label for="ct9"><input type="checkbox" name="category" value="9" id="ct9"> 음반/DVD</label>
+					</div>
+					<div id="category2">
+						<label for="ct10"><input type="checkbox" name="category" value="10" id="ct10"> 기타</label>
+					</div>
+				</div>
+
+
+
+			<%--<div class="select_mate" data-mate-select="active" >
 				<select name="" onchange="" onclick="return false;" id="category">
 				<option value="%">전체</option>
 				<option value="1">의류</option>
@@ -368,7 +500,7 @@ window.onload = function(){
 				<option value="7">캠핑용품</option>
 				<option value="8">유아용품</option>
 				<option value="9">음반/DVD</option>
-				<option value="10">기타</option>				
+				<option value="10">기타</option>
 				</select>
 				<p class="selecionado_opcion"  onclick="open_select(this)" ></p><span onclick="open_select(this)" class="icon_select_mate" ><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
 				    <path d="M7.41 7.84L12 12.42l4.59-4.58L18 9.25l-6 6-6-6z"/>
@@ -377,10 +509,17 @@ window.onload = function(){
 				<div class="cont_list_select_mate">
 				  <ul class="cont_select_int"> </ul> 
 				</div>
-			 </div>
+			 </div>--%>
 		  	<!-- 카테고리 끝 -->
 		  	<!-- 거리조건  -->
-			<div class="select_mate" data-mate-select="active" >
+				<button name="전체"  id="rangeBtn" value="전체">거리
+					<i class="fas fa-angle-down" style="margin-left: 50px; font-size: 19px;"></i></button>
+
+				<div class="category" id="range-slider" style="display:none;">
+					<input id="range-slider__range" type="range" value="10" min="1" max="50">
+					<span id="range-slider__value">10km</span>
+				</div>
+			<%--<div class="select_mate" data-mate-select="active" >
 				<select name="" onchange="" onclick="return false;" id="distance">
 				<option value="100">1km </option>
 				<option value="3">3km</option>
@@ -399,7 +538,7 @@ window.onload = function(){
 				<div class="cont_list_select_mate">
 				  <ul class="cont_select_int">  </ul> 
 				</div>
-			</div> 	 
+			</div> --%>
 			<!-- 거리조건 끝 --> 
 		  	<!-- 검색조건 --> 
 			<div class="select_mate" data-mate-select="active" >
@@ -511,8 +650,8 @@ window.onload = function(){
 		</div>
 		
 		<div class=content>
-			<div class="selection_wrapper">
-				<div class="selection_content" id="selection_content_id1" onclick="location.href='${pageContext.request.contextPath}/moa/search/1'">
+			<div class="selection_wrapper" >
+				<div class="selection_content" id="selection_content_id1"<%-- onclick="location.href='${pageContext.request.contextPath}/moa/search/1'"--%>>
 				</div>
 			
 			</div>

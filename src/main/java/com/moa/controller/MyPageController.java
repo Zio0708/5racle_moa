@@ -55,4 +55,11 @@ public class MyPageController {
         requestVO.setApplicationDate(requestVO.getApplicationDate());
         return requestVO;
     }
+    @ExceptionHandler(Exception.class)
+    public ModelAndView handleException(Exception e){
+        ModelAndView mav=new ModelAndView();
+        mav.setViewName("/error/page");
+        mav.addObject("message","존재하지 않는 페이지 입니다.");
+        return mav;
+    }
 }

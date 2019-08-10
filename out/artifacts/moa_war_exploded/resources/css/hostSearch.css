@@ -171,8 +171,7 @@ margin:0;
 
 
 .search_wrapper{
-	margin:12px;
-	
+    margin: 12px 0px 12px 12px;
 }
 .search_input,
 .search_btn{
@@ -371,6 +370,126 @@ margin:0;
 #map{
 	width:674px;
 	height:776px;
+}
+
+
+
+
+
+
+
+
+#categoryBtn{
+    position: relative;
+    float: left;
+    min-width: 100px;
+    width: 140px;
+    min-height: 50px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #423257;
+    font-weight: 600;
+    background-color: #E8E8E8;
+    border-radius: 3px;
+    border-style:none;
+    transition: all 375ms ease-in-out;
+    font-size:16px;
+    text-align: left;
+    cursor: pointer;
+}
+#rangeBtn{
+    position: relative;
+    float: left;
+    min-width: 100px;
+    width: 140px;
+    min-height: 50px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #423257;
+    font-weight: 600;
+    background-color: #E8E8E8;
+    border-radius: 3px;
+    border-style:none;
+    transition: all 375ms ease-in-out;
+    font-size:16px;
+    text-align: left;
+    cursor: pointer;
+}
+#range-slider__value{
+    margin: 10px;
+    font-size: 25px;
+    display: -webkit-inline-box;
+    font-family: '나눔고딕', sans-serif;
+    color: #423257;
+}
+#range-slider__range{
+    -webkit-appearance: none;
+    width: 160px;
+    height: 30px;
+    margin: 10px;
+    background: linear-gradient(to right, #878787 0%, #878787 100%);
+    background-size: 150px 10px;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    outline: none;
+    zoom: 130%;
+    display: block;
+}
+#range-slider__range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #423257;
+    position: relative;
+    z-index: 3;
+}
+
+#range-slider__range::-webkit-slider-thumb:after {
+    content: " ";
+    width: 160px;
+    height: 10px;
+    position: display;
+    z-index: 1;
+    right: 20px;
+    top: 5px;
+    background: #2ecc71;
+}
+.category{    background-color: #EEEEEE;
+    display: none;
+    border-radius: 5px;
+    box-shadow: 1px 6px 20px -10px grey;
+    z-index: 1;
+}
+#category{
+    position: absolute;
+    top: 140px;
+    left: 270px;
+}
+#range-slider{
+    position: absolute;
+    top: 140px;
+    left: 400px;
+}
+#category2{    height: 25px;
+    color: #423257;
+    font-size: 17px;
+    font-family: 'Nanum Gothic', sans-serif;
+    width: 170px;
+    padding: 10px;
+    border-bottom-style: solid;
+    border-color: #d3d3d3;
+    border-width: 1px;
+    background: whitesmoke;
+    transition:275ms;
+    font-weight: 600;
+}
+#category2>label{
+    display: block;
+    height: 30px;
+    cursor: pointer;
+}
+#category2:hover{
+    background:#423257;
+    color:white;
 }
 
 

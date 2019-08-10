@@ -35,7 +35,7 @@
   height: 150px;
   border: 1px solid #bdc3c7;
   margin: 5px 30px 0 30px;
-  overflow: : auto;
+  overflow: auto;
 }
 .rs_context .rs_context_contents h4{
   margin: 10px;
@@ -203,7 +203,7 @@
   font-weight: normal;
 }
 .rs_application_date .rs_application_date_contents{
-  width: 100px;
+  width: 180px;
   border: 1px solid #bdc3c7;
   border-radius: 5px;
   margin-right: 10px;

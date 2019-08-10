@@ -1,8 +1,7 @@
 package com.moa.model.dao;
 
-import com.moa.model.vo.ReadStoreRequestVO;
-import com.moa.model.vo.RequestProductVO;
-import com.moa.model.vo.SimpleUserRequestVO;
+import com.moa.model.vo.*;
+import com.moa.mybatis.CheckLuggageMapper;
 import com.moa.mybatis.HostStorageMapper;
 import com.moa.mybatis.StoreRequestMapper;
 import lombok.NoArgsConstructor;
@@ -13,6 +12,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 @NoArgsConstructor
@@ -67,5 +67,23 @@ public class StoreRequestDAOImpl implements StoreRequestDAO{
         }
 
         return simpleList;
+    }
+    @Override
+    public int insert(StoreRequestVO storeRequestVO) {
+        CheckLuggageMapper mapper=sqlSession.getMapper(CheckLuggageMapper.class);
+        mapper.insert(storeRequestVO);
+        return storeRequestVO.getStoreRequestNum();
+    }
+    @Override
+    public List<SimpleHostRequestVO> searchListByHost(Map<String,Object> map){
+        StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
+
+        return mapper.searchListByHost(map);
+    }
+    @Override
+    public int searchAllListCnt(Map<String,Object> map){
+        StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
+
+        return mapper.searchAllListCnt(map);
     }
 }

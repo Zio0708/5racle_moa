@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="/resources/css/requestStoreList.css">
 <link rel="stylesheet" href="/resources/css/requestStoreInfo.css">
 <script src="/resources/js/jquery-3.4.1.min.js"></script>
-<script src="/resources/js/requestStoreList.js"></script>
+<script src="/resources/js/requestList.js"></script>
 </head>
 <body>
 <%@ include file="navbar.jsp" %>
