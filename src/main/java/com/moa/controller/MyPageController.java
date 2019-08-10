@@ -32,6 +32,8 @@ public class MyPageController {
     private LuggageRequestInfoService luggageRequestInfoService;
     @Autowired
     private MessengerListServiceImpl messengerListService;
+    @Autowired
+    private MemberInfoService memberInfoService;
 
     @RequestMapping(value="", method= RequestMethod.GET)
     public ModelAndView myPage() {
@@ -77,6 +79,7 @@ public class MyPageController {
         requestVO.setApplicationDate(requestVO.getApplicationDate());
         return requestVO;
     }
+
     @ExceptionHandler(Exception.class)
     public ModelAndView handleException(Exception e){
         ModelAndView mav=new ModelAndView();
