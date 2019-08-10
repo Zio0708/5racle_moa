@@ -20,6 +20,13 @@ public class StoreRequestDAOImpl implements StoreRequestDAO{
     @Autowired
     private SqlSession sqlSession;
 
+    @Override
+    public int insert(StoreRequestVO storeRequestVO) {
+        CheckLuggageMapper mapper=sqlSession.getMapper(CheckLuggageMapper.class);
+        mapper.insert(storeRequestVO);
+        return storeRequestVO.getStoreRequestNum();
+    }
+    @Override
     public ReadStoreRequestVO search(int requestId){
         StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
         ReadStoreRequestVO readStoreRequestVO;
@@ -47,6 +54,7 @@ public class StoreRequestDAOImpl implements StoreRequestDAO{
 
         return readStoreRequestVO;
     }
+    @Override
     public List<SimpleUserRequestVO> searchList(int userId){
         StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
         List<SimpleUserRequestVO> simpleList = new ArrayList<SimpleUserRequestVO>();
@@ -67,12 +75,6 @@ public class StoreRequestDAOImpl implements StoreRequestDAO{
         }
 
         return simpleList;
-    }
-    @Override
-    public int insert(StoreRequestVO storeRequestVO) {
-        CheckLuggageMapper mapper=sqlSession.getMapper(CheckLuggageMapper.class);
-        mapper.insert(storeRequestVO);
-        return storeRequestVO.getStoreRequestNum();
     }
     @Override
     public List<SimpleHostRequestVO> searchListByHost(Map<String,Object> map){

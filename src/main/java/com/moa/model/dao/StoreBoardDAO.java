@@ -1,18 +1,16 @@
 package com.moa.model.dao;
 
-import com.moa.model.vo.*;
+import com.moa.model.vo.SimpleStorageAddressVO;
+import com.moa.model.vo.StoreBoardFormVO;
 
 import java.util.List;
-import java.util.Map;
 
 public interface StoreBoardDAO {
-    List<EntrustSearchVO> searchEntrust(DetailOptionVO detail);
-
-    StoreBoardVO searchOne(int articleNum);
-
-    List<SimpleStorageBoardVO> searchMyStorage(Map<String, Object> storageInfo);
-
-    int searchMyStorageCnt(int hostId);
+    List<SimpleStorageAddressVO> selectStorageAddress(String hostId);
+    List<String> selectTransaction();
+    List<String> selectCategory();
+    List<String> selectStoragePeriod();
+    List<String> selectPrice();
 
     int insert(StoreBoardFormVO storeBoardFormVO);
 
