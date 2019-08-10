@@ -1,6 +1,7 @@
 package com.moa.controller;
 
 
+import com.moa.message.MessengerStateMessage;
 import com.moa.model.service.LuggageRequestInfoService;
 import com.moa.model.service.LuggageRequestRecordService;
 import com.moa.model.service.MessengerListServiceImpl;
