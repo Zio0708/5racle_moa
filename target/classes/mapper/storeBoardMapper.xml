@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.moa.mybatis.StoreBoardMapper">
+
     <sql id="Entrust_columns">
     ARTICLE_NUM, DETAIL_PRICE, STAR_POINT_AVG, STORAGE_TYPE, PICTURE_NAME, TOT_REVIEW_CNT,
     STORAGE_PERIOD_TYPE_ID, NICKNAME, LATITUDE, LONGITUDE
@@ -12,6 +13,10 @@
         HOST_ID hostId, ARTICLE_NUM articleNum, TITLE title, STORE_PRODUCT_CNT storeProductCNt,
         EXPIRE_PRODUCT_CNT exprieProductCnt, FAVORITE_CNT favoriteCnt,
         REVIEW_CNT reviewCnt, STAR_POINT starPoint, PICTURE_NAME pictureName
+    </sql>
+
+    <sql id="storage_address_columns">
+        STORAGE_ID, BASE_ADDRESS, DETAIL_ADDRESS
     </sql>
 
     <resultMap id="entrustSearchVO" type="com.moa.model.vo.EntrustSearchVO">
@@ -27,7 +32,94 @@
         <id property="longitude" column="LONGITUDE" jdbcType="NUMERIC"/>
     </resultMap>
 
-    <select id="searchEntrust"  parameterType="com.moa.model.vo.EntrustSearchVO" resultMap="entrustSearchVO">
+    <resultMap id="storage_address_map" type="com.moa.model.vo.SimpleStorageAddressVO">
+        <id property="storageId" column="STORAGE_ID"/>
+        <id property="baseAddress" column="BASE_ADDRESS"/>
+        <id property="detailAddress" column="DETAIL_ADDRESS"/>
+    </resultMap>
+
+    <!--송준희-->
+    <select id="selectStorages" parameterType="Integer" resultMap="storage_address_map">
+        SELECT
+        <include refid="storage_address_columns"/>
+        -- SELECT S.STORAGE_ID, BASE_ADDRESS || ' ' || DETAIL_ADDRESS AS ADDRESS
+        -- SELECT S.STORAGE_ID, BASE_ADDRESS, DETAIL_ADDRESS
+        FROM STORAGE_TB JOIN ADDRESS_TB USING(ADDRESS_ID)
+        where HOST_ID = #{hostId}
+    </select>
+
+    <select id="selectTransaction" resultType="String">
+        SELECT TRANSACTION_WAY FROM SR_TRANSACTION_TYPE_TB
+    </select>
+
+    <select id="selectCategory" resultType="String">
+        SELECT CATEGORY_NAME FROM CATEGORY_TB
+    </select>
+
+    <select id="selectStoragePeriod" resultType="String">
+        SELECT PERIOD_TYPE FROM STORAGE_PERIOD_TYPE_TB
+    </select>
+
+    <select id="selectPrice" resultType="String">
+        SELECT DETAIL_PRICE_NAME FROM DETAILS_PRICE_TB ORDER BY DETAILS_PRICE_ID ASC
+    </select>
+
+    <select id="selectParameters" parameterType="hashMap" resultType="hashMap">
+        SELECT AUTO_STORE_BOARD_TB.NEXTVAL, ST.SR_TRANSACTION_TYPE_ID, SF.SECURITY_FACILITY_ID, SP.STORAGE_PERIOD_TYPE_ID
+        FROM DUAL, SR_TRANSACTION_TYPE_TB ST, SECURITY_FACILITY_TB SF, STORAGE_PERIOD_TYPE_TB SP
+        WHERE ST.TRANSACTION_WAY=#{transaction} AND SF.SECURITY=#{cctv} AND SP.PERIOD_TYPE=#{storagePeriod}
+    </select>
+
+    <insert id="insertIntoStoreBoard" parameterType="hashMap">
+        <choose>
+            <when test="pet_text!=null">
+                INSERT INTO STORE_BOARD_TB (ARTICLE_NUM, HOST_ID, STORAGE_PERIOD_TYPE_ID, SR_TRANSACTION_TYPE_ID,
+                WRITE_DATE, PET_FLAG, TITLE, CONTENT, DEL_FLAG, STORAGE_ID) VALUES (
+                #{articleNum}, #{hostId}, #{storagePeriod}, #{transaction}, DEFAULT, '0', #{title}, #{content}, DEFAULT,
+                #{storageId})
+            </when>
+            <otherwise>
+                INSERT INTO STORE_BOARD_TB (ARTICLE_NUM, HOST_ID, STORAGE_PERIOD_TYPE_ID, SR_TRANSACTION_TYPE_ID,
+                WRITE_DATE, PET_FLAG, TITLE, CONTENT, DEL_FLAG, STORAGE_ID) VALUES (
+                #{articleNum}, #{hostId}, #{storagePeriod}, #{transaction}, DEFAULT, '1', #{title}, #{content}, DEFAULT,
+                #{storageId})
+            </otherwise>
+        </choose>
+    </insert>
+
+    <insert id="insertIntoPetType" parameterType="hashMap">
+        <choose>
+            <when test="pet != null">
+                INSERT INTO PET_TYPE_TB (ARTICLE_NUM, PET) VALUES (#{articleNum}, #{pet})
+            </when>
+        </choose>
+    </insert>
+
+    <insert id="insertIntoSF_SB" parameterType="hashMap">
+        INSERT INTO SF_SB_TB (SECURITY_FACILITY_ID, ARTICLE_NUM) VALUES (#{cctv}, #{articleNum})
+    </insert>
+
+    <insert id="insertIntoSBAttachedPicture" parameterType="hashMap">
+        INSERT INTO SB_ATTACHED_PICTURE_TB (SB_ATTACHED_PICTURE_ID, PICTURE_NAME, ARTICLE_NUM) VALUES (
+        AUTO_SB_ATTACHED_PICTURE_TB.NEXTVAL, #{pictureName}, #{articleNum})
+    </insert>
+
+    <insert id="insertIntoDetailPriceFibo" parameterType="hashMap">
+        INSERT INTO DETAIL_PRICE_FIBO_TB (ARTICLE_NUM, DETAILS_PRICE_ID, DETAIL_PRICE) VALUES (
+        #{articleNum}, #{priceId}, #{price})
+    </insert>
+
+    <select id="selectCategoryId" parameterType="String" resultType="Integer">
+        SELECT CATEGORY_ID FROM CATEGORY_TB WHERE CATEGORY_NAME = #{category}
+    </select>
+
+    <insert id="insertIntoForbiddenProduct" parameterType="hashMap">
+        INSERT INTO FORBIDDEN_PRODUCT_TB (FORBIDDEN_PRODUCT_ID, ARTICLE_NUM, CATEGORY_ID, PRODUCT_NAME) VALUES (
+        AUTO_FORBIDDEN_PRODUCT_TB.NEXTVAL, #{articleNum}, #{categoryId}, #{productName})
+    </insert>
+    <!--송준희-->
+
+    <select id="searchEntrust" parameterType="com.moa.model.vo.EntrustSearchVO" resultMap="entrustSearchVO">
         SELECT * FROM SEARCH_BOARD_VIEW SBV
        JOIN
         (
@@ -41,14 +133,13 @@
         AND CATEGORY_ID LIKE #{category}
         )SB
         USING (ARTICLE_NUM)
-
        /* SELECT * FROM SEARCH_BOARD_VIEW SBV*/
-
     </select>
 
     <select id="selectOne" parameterType="int" resultType="hashMap">
         SELECT * FROM STORE_BOARD_VIEW WHERE 글번호 = #{articleNum}
     </select>
+
     <select id="selectDetailPrice" resultType="java.lang.String">
         SELECT DETAIL_PRICE_NAME AS 상세가격 FROM DETAILS_PRICE_TB ORDER BY DETAILS_PRICE_ID
     </select>
