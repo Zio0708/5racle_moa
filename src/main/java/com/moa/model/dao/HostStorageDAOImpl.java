@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 @NoArgsConstructor
-public class HostStorageDAOImpl implements HostStorageDAO{
+public class HostStorageDAOImpl implements HostStorageDAO {
     @Autowired
     private SqlSession sqlSession;
 

@@ -66,20 +66,20 @@ var execDaumPostcode = function() {
   
 }
 var submit = function(){
-	let storage_type = $('input[name=storage_type_answer]:checked').val();
-	let other_text = $('#other_text').val();
-	let origin_or_new = $('input[name=origin_or_new]:checked').val();
-	let address_id = $('select[name=address_combo]').val();
-	let postcode = $('#postcode').val();
-	let address = $('#address').val();
-	let detailAddress = $('#detailAddress').val();
-	let company_name = $('#company_name').val();
-	let company_registration_name = $('#company_registration_name').val();
-	let company_representative_name = $('#company_representative_name').val();
+	var storage_type = $('input[name=storage_type_answer]:checked').val();
+	var other_text = $('#other_text').val();
+	var origin_or_new = $('input[name=origin_or_new]:checked').val();
+	var address_id = $('select[name=address_combo]').val();
+	var postcode = $('#postcode').val();
+	var address = $('#address').val();
+	var detailAddress = $('#detailAddress').val();
+	var company_name = $('#company_name').val();
+	var company_registration_name = $('#company_registration_name').val();
+	var company_representative_name = $('#company_representative_name').val();
 	
 	$.ajax({
 		type:"POST",
-		url: getContextPath() + "/moa/submithostform",
+		url: getContextPath() + "/registhost",
 		data: {
 			storage_type : storage_type,
 			other_text : other_text, 
@@ -92,11 +92,11 @@ var submit = function(){
 			company_registration_name : company_registration_name,
 			company_representative_name : company_representative_name
 		},
-		dataType: "JSON",
 		success : function(data){
-			if(data.result == "true"){
+			console.log(data)
+			if(data == "success"){
 				alert("호스트 신청이 성공적으로 완료되었습니다.");
-				location.href = getContextPath() + "/moa/main"
+				location.href = "/main"
 			}
 			else{
 				alert("호스트 신청이 실패하였습니다.")

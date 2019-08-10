@@ -132,4 +132,14 @@ img{
 #listTable tr td{
 	cursor:pointer;
 }
-
+.not_cur_page {
+  text-decoration: none;
+}
+.cur_page{
+  text-decoration: none;
+  font-weight: bold;
+}
+#load{
+    width: 256px;
+    height: 256px
+}

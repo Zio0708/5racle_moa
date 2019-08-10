@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+	$("#load").hide();
+
 	function clickList(tr){
 		alert(tr);
 	}
@@ -10,7 +12,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			type:"GET",
-			url: "/mypage/requestlist/" + id,
+			url: "/mypage/requestlist/info/" + id,
 			dataType:"JSON",
 			success : function(data){
 				console.log(data);
@@ -173,7 +175,7 @@ var moveToTransaction = function(){
 	alert("일시적으로 서비스가 중단되었습니다.");
 }
 var moveToRequest = function(){
-	location.href = "/mypage/requestlist";
+	location.href = "/mypage/requestlist/1";
 
 }
 var moveToLatest = function(){

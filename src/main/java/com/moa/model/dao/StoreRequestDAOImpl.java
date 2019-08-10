@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -26,17 +27,14 @@ public class StoreRequestDAOImpl implements StoreRequestDAO{
         mapper.insert(storeRequestVO);
         return storeRequestVO.getStoreRequestNum();
     }
-    @Override
     public ReadStoreRequestVO search(int requestId){
         StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
         ReadStoreRequestVO readStoreRequestVO;
 
         readStoreRequestVO = mapper.searchRequestInfo(requestId);
-        System.out.println(readStoreRequestVO);
         List<RequestProductVO> productList = new ArrayList<>();
 
         productList = mapper.searchRequestProduct(requestId);
-        System.out.println(productList);
 
         for(int i = 0 ; i < productList.size(); i++){
             readStoreRequestVO.getProductCategory().add(productList.get(i).getProductCategory());
@@ -50,31 +48,38 @@ public class StoreRequestDAOImpl implements StoreRequestDAO{
         for(int i = 0 ; i < pictureList.size(); i++){
             readStoreRequestVO.getPictureList().add(pictureList.get(i));
         }
-        System.out.println("마지막 테스트 : " + readStoreRequestVO);
 
         return readStoreRequestVO;
     }
-    @Override
-    public List<SimpleUserRequestVO> searchList(int userId){
+    public List<SimpleUserRequestVO> searchList(int userId, int pageNum){
         StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
         List<SimpleUserRequestVO> simpleList = new ArrayList<SimpleUserRequestVO>();
+        Map<String, Object> map = new HashMap<>();
 
-        simpleList = mapper.searchRequestList(userId);
-        System.out.println(simpleList);
+        map.put("userId", userId);
+        map.put("pageNum", pageNum);
+        simpleList = mapper.searchRequestList(map);
+
         List<RequestProductVO> productList = new ArrayList<RequestProductVO>();
 
         for(int i = 0 ; i < simpleList.size(); i++) {
-           productList = mapper.searchRequestProduct(simpleList.get(i).getRequestId());
-            System.out.println(productList);
+            productList = mapper.searchRequestProduct(simpleList.get(i).getRequestId());
 
-           for(int j = 0 ; j < productList.size(); j++){
-               simpleList.get(i).getProductCategory().add(productList.get(j).getProductCategory());
-               simpleList.get(i).getProductCnt().add(productList.get(j).getProductCnt());
-               simpleList.get(i).getProductName().add(productList.get(j).getProductName());
-           }
+            for(int j = 0 ; j < productList.size(); j++){
+                simpleList.get(i).getProductCategory().add(productList.get(j).getProductCategory());
+                simpleList.get(i).getProductCnt().add(productList.get(j).getProductCnt());
+                simpleList.get(i).getProductName().add(productList.get(j).getProductName());
+            }
         }
 
         return simpleList;
+    }
+
+    @Override
+    public int countRequestList(int userId) {
+        StoreRequestMapper mapper = sqlSession.getMapper(StoreRequestMapper.class);
+
+        return mapper.searchRequestListCount(userId);
     }
     @Override
     public List<SimpleHostRequestVO> searchListByHost(Map<String,Object> map){

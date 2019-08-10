@@ -7,10 +7,9 @@ import java.util.Map;
 
 public interface StoreRequestDAO {
     int insert(StoreRequestVO storeRequestVO);
-    ReadStoreRequestVO search(int requestId);
-    List<SimpleUserRequestVO> searchList(int userId);
-    List<SimpleHostRequestVO> searchListByHost(Map<String, Object> map);
-
+    public ReadStoreRequestVO search(int requestId);
+    public List<SimpleUserRequestVO> searchList(int userId, int pageNum);
+    public int countRequestList(int userId);
     int searchAllListCnt(Map<String, Object> map);
-
+    public List<SimpleHostRequestVO> searchListByHost(Map<String,Object> map);
 }

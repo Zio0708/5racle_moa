@@ -160,5 +160,8 @@
         select * from MY_STORAGE_VIEW where host_id = #{hostId}
     </select>
 
+    <update id="deleteOne" parameterType="int">
+        UPDATE STORE_BOARD_TB SET DEL_FLAG='Y' where ARTICLE_NUM=#{articleNum}
+    </update>
 </mapper>
 

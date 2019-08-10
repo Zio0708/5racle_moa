@@ -1,15 +1,15 @@
 package com.moa.model.service;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import com.moa.model.dao.StoreRequestDAO;
 import com.moa.model.vo.SimpleUserRequestVO;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 @NoArgsConstructor
@@ -17,11 +17,11 @@ public class LuggageRequestRecordService {
 	@Autowired
 	private StoreRequestDAO storeRequestDAO;
 	
-	public Map<String, Object> selectLuggageRequestRecord(int userId){
+	public Map<String, Object> selectLuggageRequestRecord(int userId, int pageNum){
 		Map<String, Object> map = new HashMap<String, Object>();
 		List<SimpleUserRequestVO> requestList = new ArrayList<SimpleUserRequestVO>();
 		List<String> productList = new ArrayList<String> ();
-		requestList = storeRequestDAO.searchList(userId);
+		requestList = storeRequestDAO.searchList(userId, pageNum);
 		
 		for(int i = 0 ; i < requestList.size(); i++) {
 			String productInfo = "";
@@ -44,4 +44,8 @@ public class LuggageRequestRecordService {
 		
 		return map;
 	}
+	public int LuggageRequestCountService(int userId){
+		return storeRequestDAO.countRequestList(userId);
+	}
+
 }

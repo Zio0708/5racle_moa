@@ -3,10 +3,9 @@ package com.moa.model.vo;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,8 +28,8 @@ public class ReadStoreRequestVO {
 	private List<String> pictureList;
 	private String content;
 	private String transactionType;
-	@JsonFormat(pattern="yyyy-MM-dd hh:mm")
-	private Date applicationDate;
+	@JsonFormat(pattern = "yyyy-MM-dd HH:mm", timezone = "Asia/Seoul")
+	private Timestamp applicationDate;
 	private int requestId;
 	private String baseAddress;
 	private String detailAddress;

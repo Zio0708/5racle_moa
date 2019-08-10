@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"  %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,6 +16,7 @@
 <script src="/resources/js/jquery-3.4.1.min.js"></script>
 <script src="/resources/js/requestList.js"></script>
 </head>
+
 <body>
 <%@ include file="navbar.jsp" %>
 	<div class="popup_wrapper"></div>
@@ -54,23 +58,74 @@
                  <th id="title_price">가격</th>
                  <th id="title_address">주소</th>
                </tr>
-        	   <c:forEach var="requestListVO" items="${requestList}" begin="0" varStatus="loopCount">
-        	   <tr class="rows" id="${requestListVO.requestId}">
-        	   <td><img src="/resources/image/${requestListVO.profileName}" alt=""></td>
-        	   	<td>${requestListVO.hostNick}</td>
-        	   	<td>${requestListVO.startDate} ~ ${requestListVO.endDate}</td>
-        	   	<td>     	   		
-        	   		${productList[loopCount.index]}
-        	   	</td>
-        	   	<td>${requestListVO.bargainPrice}</td>
-        	   	<td>${requestListVO.baseAddress}<br/> ${requestListVO.detailAddress}</td>
-        	   </tr>
-        	   </c:forEach>
+                 <c:choose>
+                     <c:when test="${fn:length(requestList) != 0}">
+                         <c:forEach var="requestListVO" items="${requestList}" begin="0" varStatus="loopCount">
+                             <tr class="rows" id="${requestListVO.requestId}">
+                                 <td><img src="/resources/image/${requestListVO.profileName}" alt=""></td>
+                                 <td>${requestListVO.hostNick}</td>
+                                 <td>${requestListVO.startDate} ~ ${requestListVO.endDate}</td>
+                                 <td>
+                                         ${productList[loopCount.index]}
+                                 </td>
+                                 <c:choose>
+                                     <c:when test="${requestListVO.measuredPrice >= requestListVO.bargainPrice}">
+                                         <td> <fmt:formatNumber value="${requestListVO.bargainPrice}" pattern="#,###" /></td>
+                                     </c:when>
+                                     <c:otherwise>
+                                         <td> <fmt:formatNumber value="${requestListVO.measuredPrice}" pattern="#,###" /></td>
+                                     </c:otherwise>
+                                 </c:choose>
+                                 <td>${requestListVO.baseAddress}<br/> ${requestListVO.detailAddress}</td>
+                             </tr>
+                         </c:forEach>
+                     </c:when>
+                     <c:otherwise>
+                         <tr>
+                            <td colspan="6">
+                                <div align="center">신청 목록이 존재 하지 않습니다.</div>
+                            </td>
+                         </tr>
+                     </c:otherwise>
+                 </c:choose>
+
              </table>
            </div>
 
            <div class="main_paging">
-             < 1 >
+               <img id="load" src="/resources/image/load.gif" />
+               <c:choose>
+                   <c:when test="${fn:length(requestList) != 0}">
+                       <c:choose>
+                           <c:when test="${curPage > 1}">
+                               <a href="/mypage/requestlist/${curPage - 1}"><i class="fas fa-angle-left"></i></a>
+                           </c:when>
+                           <c:otherwise>
+                               <i class="fas fa-angle-left"></i>
+                           </c:otherwise>
+                       </c:choose>
+
+                       <c:forEach var="page" begin="1" end="${totPageCnt}" step="1">
+                           <c:choose>
+                               <c:when test="${curPage ne page}">
+                                   <a class="not_cur_page" href="/mypage/requestlist/${page}">${page}</a>
+                               </c:when>
+                               <c:otherwise>
+                                   <a class="cur_page">${page}</a>
+                               </c:otherwise>
+                           </c:choose>
+                       </c:forEach>
+                       <c:choose>
+                           <c:when test="${curPage < totPageCnt}">
+                               <a href="/mypage/requestlist/${curPage+1}"><i class="fas fa-angle-right"></i></a>
+                           </c:when>
+                           <c:otherwise>
+                               <i class="fas fa-angle-right"></i>
+                           </c:otherwise>
+                       </c:choose>
+                   </c:when>
+               </c:choose>
+
            </div>
             </div>
           </div>

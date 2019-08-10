@@ -2,7 +2,6 @@ package com.moa.model.vo;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -19,6 +18,7 @@ public class SimpleUserRequestVO {
 	private List<String> productCategory;
 	private List<String> productName;
 	private List<Integer> productCnt;
+	private int measuredPrice;
 	private int bargainPrice;
 	private String baseAddress;
 	private String detailAddress;
@@ -33,6 +33,7 @@ public class SimpleUserRequestVO {
 		this.productName = new ArrayList<>();
 		this.productCnt = new ArrayList<>();
 		this.bargainPrice = 0;
+		this.measuredPrice = 0;
 		this.baseAddress = null;
 		this.detailAddress = null;
 	}

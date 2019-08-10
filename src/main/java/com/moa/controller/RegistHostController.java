@@ -30,7 +30,7 @@ public class RegistHostController {
         HttpSession session = request.getSession();
 
         //session에서 가져온다.
-        int userId = 29;
+        int userId = 31;
 
         addressInfo =  addressSearchService.searchAddress(userId);
         if(addressInfo != null) {
@@ -57,7 +57,7 @@ public class RegistHostController {
                                  @RequestParam (value="company_name") String businessName,
                                  @RequestParam (value="company_registration_name") String registrationNum,
                                  @RequestParam (value="company_representative_name") String representative){
-        int userId = 29;
+        int userId = 31;
         double longitude = 21.45333;
         double latitude = 34.2513551;
 

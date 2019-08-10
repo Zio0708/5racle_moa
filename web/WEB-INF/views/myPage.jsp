@@ -57,16 +57,16 @@
                   </div>
                 </div>
                 <div class="update">
-                  <button type="button" id="update_btn" name="update_btn" onclick="updateInfo()">수정하기</button>
+                  <button type="button" id="update_btn" name="update_btn" onclick="moveToInfo()">수정하기</button>
                 </div>
 
-                <div class="request_entrust_list" onclick="storeRequestList();">
+                <div class="request_entrust_list" onclick="moveToRequest();">
                   <h3>보관 요청 목록 ></h3>
                   <h3 id="request_entrust_list_cnt">${requestCnt}개</h3>
                 </div>
               </div>
               <div class="right_context">
-                <div class="not_read_message" onclick="notReadMessage();">
+                <div class="not_read_message" onclick="moveToMessage();">
                   <h3>안읽은 쪽지 ></h3>
                   <h3 id="not_read_message_cnt">${notReadMessageCnt}개</h3>
                 </div>

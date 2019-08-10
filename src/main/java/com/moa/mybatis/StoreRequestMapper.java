@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Map;
 
 public interface StoreRequestMapper {
-    List<String> searchRequestPicture(int requestId);
-    ReadStoreRequestVO searchRequestInfo(int requestId);
-    List<SimpleUserRequestVO> searchRequestList(int userId);
-    List<RequestProductVO> searchRequestProduct(int requestId);
     List<SimpleHostRequestVO> searchListByHost(Map<String,Object> map);
     int searchAllListCnt(Map<String,Object> map);
+    List<String> searchRequestPicture(int requestId);
+    ReadStoreRequestVO searchRequestInfo(int requestId);
+    List<SimpleUserRequestVO> searchRequestList(Map<String, Object> map);
+    List<RequestProductVO> searchRequestProduct(int requestId);
+    int searchRequestListCount(int userId);
 }
