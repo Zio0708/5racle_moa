@@ -30,15 +30,15 @@
 			}
 
 			var addStaffText = '<tr name="stuff">'
-					+ '<td>' + table_product_num + '</td>'
-					+ '<td>'
-					+ '<select name="category">';
+					+ '<td class="table_data">' + table_product_num + '</td>'
+					+ '<td class="table_data">'
+					+ '<select class="category_list" name="category">';
 			<c:forEach var="category" items="${map.category}" varStatus="cnt">
 			addStaffText += ('<option class="category_list" value="${category}">${category}</option>');
 			</c:forEach>
 			addStaffText += '</select>' + '</td>';
-			addStaffText += '<td><input type="text" class="product_name" name="product_name"></td>';
-			addStaffText += '<td><input type="number" class="product_cnt" name="product_cnt" min=0 max=100></td>' + '</tr>';
+			addStaffText += '<td class="table_data"><input type="text" class="product_name" name="product_name"></td>';
+			addStaffText += '<td class="table_data"><input type="number" class="product_cnt" name="product_cnt" min=0 max=100 value=0></td>' + '</tr>';
 			var trHtml = $("tr[name=stuff]:last"); //last를 사용하여 trStaff라는 명을 가진 마지막 태그 호출
 			trHtml.before(addStaffText); //마지막 trStaff명 뒤에 붙인다
 		});
@@ -58,7 +58,7 @@
 	<div class="main">
 		<div class="main_board">
 			<div id="exit_button">
-				<button type="button" class="exit_btn" id="exit_btn" name="exit_btn" onClick="location.href='/main'">
+				<button type="button" class="exit_btn" id="exit_btn" name="exit_btn" onClick="exit()">
 					나가기
 				</button>
 			</div>
@@ -69,23 +69,24 @@
 					<table class='entrust_product_tb'>
 						<thead>
 						<tr class="table_row">
-							<th class="table_head">번호</th>
-							<th class="table_head">카테고리</th>
-							<th class="table_head">물건명</th>
-							<th class="table_head">물건 개수</th>
+							<th class="table_head1">번호</th>
+							<th class="table_head2">카테고리</th>
+							<th class="table_head3">물건명</th>
+							<th class="table_head4">물건 개수</th>
 						</tr>
 						</thead>
 						<tr name='stuff'>
 							<td class="table_data">1</td>
 							<td class="table_data">
-								<select name="category">
+								<select class="category_list" name="category">
 									<c:forEach var="category" items="${forbidden_product_type}" varStatus="cnt">
-										<option value="${category}">${category}</option>
+										<option class="category_list" value="${category}">${category}</option>
 									</c:forEach>
 								</select>
 							</td>
-							<td class="table_data"><input type="text" name="product_name"></td>
-							<td class="table_data"><input type="number" name="product_cnt" min=0 max=100></td>
+							<td class="table_data"><input type="text" class="product_name" name="product_name"></td>
+							<td class="table_data"><input type="number" class="product_cnt" name="product_cnt" min=0
+														  max=100 value=0></td>
 						</tr>
 						<tr name='stuff'>
 							<td colspan="4"><i class="fas fa-plus-circle" name='add_row_btn'></i></td>
@@ -98,17 +99,17 @@
 						<i class="far fa-question-circle"><span><img src="${contextPath}/image/5호박스.png"/></span></i>
 					</div>
 					<div class="product_size_1">
-						<input type="number" class="sizeCnt" name="product_size" min=0 max=100>개
+						5호 박스 개수 <input type="number" class="sizeCnt" name="product_size" min=0 max=100 value=0>개
 					</div>
 
 					<div class="content2_header">박스에 들어가지 않는 물건이라면 이곳에 입력해주세요.</div>
 					<div class="product_size_2">
 						자전거 이상 크기 <input type="number" class="sizeCnt" name="product_size" min=0
-										 max=100>개
+										 max=100 value=0>개
 					</div>
 					<div class="product_size_3">
 						싱글 침대 이상 크기 <input type="number" class="sizeCnt" name="product_size" min=0
-										   max=100>개
+										   max=100 value=0>개
 					</div>
 				</div>
 
@@ -124,19 +125,19 @@
 							<input type="radio" class="radio_btn" id="expected_price" value="expected_price"
 								   style="display: none;"/>
 							<label for="expected_price"> 측정 가격
-								<input type="number" class="i_price" name="price"> </label>
+								<input type="text" class="i_price" name="price" value="120000" readonly> </label>
 						</div>
 						<div class="price_e2">
 							<input type="radio" class="radio_btn" id="bargain_price" value="bargain_price"
 								   style="display: none;"/>
 							<label for="bargain_price"> 흥정 가격
-								<input type="number" class="i_price" name="price"> </label>
+								<input type="text" class="i_price" name="price"> </label>
 						</div>
 					</div>
 				</div>
 
 				<div class="content4" id="content4" style="display: none;">
-					<h2 class="head_5">원하는 거래방식을 선택해주세요.</h2>
+					<h2 class="head_5">원하는 거래방식을 선택해주세요</h2>
 					<div class="deals">
 						<div class="deal_1">
 							<input type="radio" class="radio_btn" id="direct_deal" name="trade_type_answer"
@@ -149,8 +150,8 @@
 							<label for="delivery"> 택배 </label>
 						</div>
 					</div>
-					<h2 class="head_5">추가 전달 내용을 입력해주세요</h2>
-					<textarea class="post_contents" name="post_contents" rows="14" cols="60"
+					<h2 class="head_5">추가로 전달할 내용을 입력해주세요</h2>
+					<textarea class="post_contents" name="post_contents" rows="12" cols="60"
 							  placeholder="맡길 물건에 대한 간단한 설명을 입력해주세요" maxlength="1000"></textarea>
 				</div>
 

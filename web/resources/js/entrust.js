@@ -30,28 +30,28 @@ function prevForm() {
 			$("#content1").show();
 			$("#left_side").hide();
 			elem.style.width = 0 + '%';
-			$("#percent").html("0%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;0%");
 			num--;
 			return;
 		case 3:
 			$("#content2").show();
 			$("#content3").hide();
 			elem.style.width = 20 + '%';
-			$("#percent").html("20%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;20%");
 			num--;
 			return;
 		case 4:
 			$("#content3").show();
 			$("#content4").hide();
 			elem.style.width = 40 + '%';
-			$("#percent").html("40%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;40%");
 			num--;
 			return;
 		case 5:
 			$("#content4").show();
 			$("#content5").hide();
 			elem.style.width = 60 + '%';
-			$("#percent").html("60%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;60%");
 			num--;
 			return;
 		case 6:
@@ -59,7 +59,7 @@ function prevForm() {
 			$("#content6").hide();
 			$("#right_side").show();
 			elem.style.width = 80 + '%';
-			$("#percent").html("80%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;80%");
 			num--;
 			return;
 		case 7:
@@ -80,28 +80,28 @@ function nextForm() {
 			$("#content2").show();
 			$("#left_side").show();
 			elem.style.width = 20 + '%';
-			$("#percent").html("20%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;20%");
 			num++;
 			return;
 		case 2:
 			$("#content2").hide();
 			$("#content3").show();
 			elem.style.width = 40 + '%';
-			$("#percent").html("40%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;40%");
 			num++;
 			return;
 		case 3:
 			$("#content3").hide();
 			$("#content4").show();
 			elem.style.width = 60 + '%';
-			$("#percent").html("60%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;60%");
 			num++;
 			return;
 		case 4:
 			$("#content4").hide();
 			$("#content5").show();
 			elem.style.width = 80 + '%';
-			$("#percent").html("80%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;80%");
 			num++;
 			return;
 		case 5:
@@ -109,7 +109,7 @@ function nextForm() {
 			$("#content6").show();
 			$("#right_side").hide();
 			elem.style.width = 100 + '%';
-			$("#percent").html("100%");
+			$("#percent").html("&nbsp;&nbsp;&nbsp;100%");
 			num++;
 			return;
 		case 6:
@@ -126,20 +126,19 @@ function nextForm() {
 
 function exit() {
 	if (confirm("작성한 내용은 저장되지 않습니다. 정말로 나가시겠습니까?")) {
-		location.href = "/main";
+		$('#regForm')[0].reset();
+		location.href = "/moa/main";
 	}
 }
 
-function getContextPath() {
-	let hostIndex = location.href.indexOf(location.host) + location.host.length;
-	let contextPath = location.href.substring(hostIndex, location.href.indexOf(
-		'/', hostIndex + 1));
-	return contextPath;
+function finished() {
+	$('#regForm')[0].reset();
+	location.href = "/moa/main";
 }
 
 function submitForm() {
 	if ($("#submit_btn").prop("checked")) {
-		let form = $('#regForm')[0];
+		var form = $('#regForm')[0];
 		let data = new FormData(form);
 
 		$.ajax({
