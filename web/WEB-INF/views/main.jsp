@@ -19,12 +19,7 @@
             <div class="slide_text">
              	 <!-- 이러다 지구도 담겠어! -->
             </div>
-           <!--  <div class="left_btn">
-              <button id ="left_btn" type="button" name="button"  onclick="location.href=''"><i class="fas fa-cubes"></i> | 보관소 찾기</button>
-            </div>
-            <div class="right_btn">
-              <button id ="right_btn" type="button" name="button" onclick="location.href='confirmyet.jsp'"><i class="fas fa-hand-holding"></i> | 호스트 페이지</button>
-            </div> -->
+
             <div class="left_paging"> 
               <i class="fas fa-angle-left"></i>
             </div>
@@ -36,13 +31,13 @@
                 <input type="radio" name="r" id="r2" disable >
                 <input type="radio" name="r" id="r3" disable>
               <div class="slide s1">
-                  <img src="${pageContext.request.contextPath }/image/main/slide1.jpg" alt="">
+                  <img src="/resources/image/main/slide1.jpg" alt="">
               </div>
               <div class="slide">
-                  <img src="${pageContext.request.contextPath }/image/main/slide2.jpg" alt="">
+                  <img src="/resources/image/main/slide2.jpg" alt="">
               </div>
               <div class="slide">
-                  <img src="${pageContext.request.contextPath }/image/main/slide3.jpg" alt="">
+                  <img src="/resources/image/main/slide3.jpg" alt="">
               </div>
             </div>
 

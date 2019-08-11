@@ -6,12 +6,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class MainController {
 
-    @RequestMapping("/test")
+    @RequestMapping(value = {"main",""})
     public String test(){
-        int a= 2;
-        return "test";
-    }
-    public void azxc(){
-        int asd=23;
+
+        return "main";
     }
 }
