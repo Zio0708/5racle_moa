@@ -6,14 +6,14 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
 	request.setCharacterEncoding("UTF-8");
-	String[] transaction_type = { "직거래", "택배", "무관" };
+	/*String[] transaction_type = { "직거래", "택배", "무관" };
 	request.setAttribute("transaction_type", transaction_type);
 	String[] period_type = { "단기 물품(1일~1달)", "장기 물품(1달~1년)", "무관" };
 	request.setAttribute("period_type", period_type);
 	String[] forbiddenCategory = { "의류", "도서", "패션잡화", "패브릭(커텐/이불)", "소형가전", "취미/운동용품", "유아용품/장난감", "음반/DVD", "캠핑용품", "기타" };
 	request.setAttribute("forbidden_product_type", forbiddenCategory);
 	String[] detail_price = { "1일 가격", "1주일 가격", "1달 가격", "6개월 가격", "1년 가격" };
-	request.setAttribute("detail_price", detail_price);
+	request.setAttribute("detail_price", detail_price);*/
 %>
 
 <html>
@@ -67,8 +67,6 @@ $(document).on("click","i[name=add_row_btn]",function() {
 				</div>
 				
 				<form id="regForm" class="regForm" name="regForm">
-				<%-- <form id="regForm" class="regForm" name="regForm" action="/resources/moa/keep" method="POST" enctype="multipart/form-data"> --%>
-					<!-- <input type="hidden" name="hostId" value="morningstar" /> -->
 					<div class="content1" id="content1">
 						<h2 class="head_1">선호 거래 방식을 선택해주세요</h2>
 						<div class="deliver_type">

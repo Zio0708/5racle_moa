@@ -122,16 +122,16 @@
 					<h2 class="head_3">흥정을 하고싶다면 직접 가격을 입력해주세요.</h2>
 					<div class="price_class">
 						<div class="price_e1">
-							<input type="radio" class="radio_btn" id="expected_price" value="expected_price"
+							<input type="radio" class="radio_btn" value="expected_price"
 								   style="display: none;"/>
 							<label for="expected_price"> 측정 가격
-								<input type="text" class="i_price" name="price" value="120000" readonly> </label>
+								<input type="text" id="expected_price" class="i_price" name="price" value="120000" readonly> </label>
 						</div>
 						<div class="price_e2">
-							<input type="radio" class="radio_btn" id="bargain_price" value="bargain_price"
+							<input type="radio" class="radio_btn" value="bargain_price"
 								   style="display: none;"/>
 							<label for="bargain_price"> 흥정 가격
-								<input type="text" class="i_price" name="price"> </label>
+								<input type="text" id="bargain_price" class="i_price" name="price"> </label>
 						</div>
 					</div>
 				</div>
@@ -151,7 +151,7 @@
 						</div>
 					</div>
 					<h2 class="head_5">추가로 전달할 내용을 입력해주세요</h2>
-					<textarea class="post_contents" name="post_contents" rows="12" cols="60"
+					<textarea id="post_contents" class="post_contents" name="post_contents" rows="12" cols="60"
 							  placeholder="맡길 물건에 대한 간단한 설명을 입력해주세요" maxlength="1000"></textarea>
 				</div>
 
