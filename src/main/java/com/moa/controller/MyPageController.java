@@ -131,7 +131,7 @@ public class MyPageController {
         int allListCnt = messengerListService.messageListCnt(messageInfo);
 
         //--paging logic
-        Pagination pagination = new Pagination(allListCnt,1,list.size());
+        Pagination pagination = new Pagination(allListCnt,curPage,list.size());
 
         //ModelAndView
         mav.setViewName("messageReceive");
@@ -144,8 +144,9 @@ public class MyPageController {
     }
 
     //보낸 메세지
+
     @RequestMapping("/message/send")
-    public ModelAndView messageSend(HttpServletRequest request){
+    public ModelAndView messageSendCurPage(HttpServletRequest request){
         HttpSession session = request.getSession();//추후 로그인 처리
         int userId = 7;
         ModelAndView mav = new ModelAndView();
@@ -172,7 +173,35 @@ public class MyPageController {
 
         return mav;
     }
+    @RequestMapping("/message/send/{curPage}")
+    public ModelAndView messageSend(HttpServletRequest request,
+                                    @PathVariable int curPage){
+        HttpSession session = request.getSession();//추후 로그인 처리
+        int userId = 7;
+        ModelAndView mav = new ModelAndView();
 
+        //--list logic
+        Map<String,Object> messageInfo = new HashMap<String,Object>();
+        messageInfo.put("messageType", MessengerStateMessage.MESSAGE_TYPE_SENDER);
+        messageInfo.put("userId",userId);
+        messageInfo.put("firstNum",(curPage-1)*10+1);
+        messageInfo.put("lastNum",(curPage-1)*10+10);
+
+        List<MessageVO> list = messengerListService.messageList(messageInfo);
+        int allListCnt = messengerListService.messageListCnt(messageInfo);
+
+        //--paging logic
+        Pagination pagination = new Pagination(allListCnt,curPage,list.size());
+
+        //ModelAndView
+        mav.setViewName("messageSend");
+        mav.addObject(list);
+        mav.addObject(pagination);
+
+        System.out.println(mav);
+
+        return mav;
+    }
     //메시지 상세보기
     @RequestMapping("/message/send/detail/{messageNum}")
     public ModelAndView messageSendDetail(@PathVariable int messageNum){
@@ -192,21 +221,41 @@ public class MyPageController {
         mav.addObject("messageType","receive");
         return mav;
     }
-    @RequestMapping(value = "/message/submit", method = RequestMethod.POST)
-    public ModelAndView messageSubmitReceiver(@RequestParam String receiverNick){
+    @RequestMapping(value = {"/message/submit"}, method = RequestMethod.GET)
+    public ModelAndView messageSubmitForm(){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("messageSendDetail");
-        mav.addObject("receiveNick", receiverNick);
+
         //SESSION에 있는 닉네임 정보
         mav.addObject("userNick","성진킴");
         return mav;
     }
-    @RequestMapping(value = "/message/submit", method = RequestMethod.GET)
-    public ModelAndView messageSubmit(){
+    @ResponseBody
+    @RequestMapping(value = {"/message/sendmessage"}, method = RequestMethod.POST)
+    public boolean messageSubmit(@RequestBody Map<String,Object> messageSendInfo){
+        if(memberInfoService.checkExistUser((String)messageSendInfo.get("receiverNick"))==false){
+            return false;
+        }
+        return messengerListService.messageSend(messageSendInfo);
+    }
+    @RequestMapping(value = {"/message/submit/{receiverNick}"}, method = RequestMethod.GET)
+    public ModelAndView messageReply(@PathVariable String receiverNick){
         ModelAndView mav = new ModelAndView();
         mav.setViewName("messageSendDetail");
+        if(!receiverNick.equals("") || receiverNick != null){
+            mav.addObject("receiverNick",receiverNick);
+        }
         //SESSION에 있는 닉네임 정보
         mav.addObject("userNick","성진킴");
         return mav;
     }
+
+    @ResponseBody
+    @RequestMapping("/message/read/{messageNumber}")
+    public boolean messageRead(@PathVariable int messageNumber){
+
+        return messengerListService.messageRead(messageNumber);
+    }
+
+
 }

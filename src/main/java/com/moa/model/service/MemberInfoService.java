@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 public class MemberInfoService {
     @Autowired
     private UserDAO userDAO;
-
+    public boolean checkExistUser(String userNick){
+        return userDAO.checkExistUser(userNick);
+    }
     public SimpleUserInfoVO selectMemberInfo(int userId){
         return userDAO.selectUserInfo(userId);
     }

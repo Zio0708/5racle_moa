@@ -39,4 +39,12 @@ public class MessengerDAOImpl {
         MessengerMapper mapper= sqlSession_oracle.getMapper(MessengerMapper.class);
         return mapper.searchOneMessage(messageId);
     }
+    public boolean insertOneMessage(Map<String,Object> insertMessageInfo){
+        MessengerMapper mapper= sqlSession_oracle.getMapper(MessengerMapper.class);
+        if(mapper.insertOneMessage(insertMessageInfo) == false){
+            return true;
+        }
+
+        return false;
+    }
 }

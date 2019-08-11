@@ -20,4 +20,13 @@ public class UserDAOImpl implements UserDAO {
 
         return mapper.selectUserInfo(userId);
     }
+
+    @Override
+    public boolean checkExistUser(String userNick) {
+        UserMapper mapper = sqlSession.getMapper(UserMapper.class);
+        int result = mapper.selectUserExist(userNick);
+        if(result == 1)
+            return true;
+        return false;
+    }
 }

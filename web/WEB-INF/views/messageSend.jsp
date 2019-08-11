@@ -107,7 +107,7 @@
                     <i class="fas fa-angle-left"></i>
                 </c:if>
                 <c:if test="${pagination.curPage != 1}">
-                    <i class="fas fa-angle-left" style="cursor: pointer" onclick="location.href='/mypage/recevie/${pagination.curPage - 1}'"></i>
+                    <i class="fas fa-angle-left" style="cursor: pointer" onclick="location.href='/mypage/message/send/${pagination.curPage - 1}'"></i>
                 </c:if>
 
                 <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
@@ -115,7 +115,7 @@
                         <span style="font-weight: bold">&nbsp;${i}&nbsp;</span>
                     </c:if>
                     <c:if test="${pagination.curPage != i}">
-                        <span style="cursor: pointer" onclick="location.href='/mypage/recevie/${i}'">&nbsp;${i}&nbsp;</span>
+                        <span style="cursor: pointer" onclick="location.href='/mypage/message/send/${i}'">&nbsp;${i}&nbsp;</span>
                     </c:if>
                 </c:forEach>
 
@@ -123,7 +123,7 @@
                     <i class="fas fa-angle-right"></i>
                 </c:if>
                 <c:if test="${pagination.curPage != pagination.endPage}">
-                    <i class="fas fa-angle-right" style="cursor: pointer" onclick="location.href='/mypage/recevie/${pagination.curPage + 1}'"></i>
+                    <i class="fas fa-angle-right" style="cursor: pointer" onclick="location.href='/mypage/message/send/${pagination.curPage + 1}'"></i>
                 </c:if>
             </div>
 

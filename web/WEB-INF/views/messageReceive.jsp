@@ -46,7 +46,7 @@
                         <th id="table_title2" onclick="location.href='/mypage/message/send'">보낸 메세지</th>
                         <th id="table_space">
                             <button id="add_btn"type="button" name="button"
-                                    onclick="location.href='${contextPath}/moa/keep'">
+                                    onclick="sendPopup()">
                                 메세지 작성
                             </button>
                             <button id="delete_btn"type="button" name="button"
@@ -80,10 +80,10 @@
                                         <td style="font-weight: bold;"><i class="far fa-envelope"></i></td>
                                         <td style="font-weight: bold;">${i.senderNick}</td>
                                         <c:if test="${fn:length(i.content) > 35}">
-                                            <td onclick="popupOpen(${i.messageId})"  style="font-weight: bold;text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
+                                            <td onclick="popupOpen(${i.messageId},${i.readState})"  style="font-weight: bold;text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
                                         </c:if>
                                         <c:if test="${fn:length(i.content) <= 35}">
-                                            <td  onclick="popupOpen(${i.messageId})"  style="font-weight: bold;text-align: left;">${i.content}</td>
+                                            <td  onclick="popupOpen(${i.messageId},${i.readState})"  style="font-weight: bold;text-align: left;">${i.content}</td>
                                         </c:if>
                                         <td style="font-weight: bold;">${i.sendDate}</td>
                                         <td style="font-weight: bold;">${i.sendTime}</td>
@@ -95,10 +95,10 @@
                                         <td><i class="far fa-envelope-open"></i></td>
                                         <td>${i.senderNick}</td>
                                         <c:if test="${fn:length(i.content) > 30}">
-                                            <td  onclick="popupOpen(${i.messageId})" style="text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
+                                            <td  onclick="popupOpen(${i.messageId},${i.readState})" style="text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
                                         </c:if>
                                         <c:if test="${fn:length(i.content) <= 30}">
-                                            <td  onclick="popupOpen(${i.messageId})" style="text-align: left;">${i.content}</td>
+                                            <td  onclick="popupOpen(${i.messageId},${i.readState})" style="text-align: left;">${i.content}</td>
                                         </c:if>
 
                                         <td>${i.sendDate}</td>
@@ -118,7 +118,7 @@
                     <i class="fas fa-angle-left"></i>
                 </c:if>
                 <c:if test="${pagination.curPage != 1}">
-                    <i class="fas fa-angle-left" style="cursor: pointer" onclick="location.href='/mypage/recevie/${pagination.curPage - 1}'"></i>
+                    <i class="fas fa-angle-left" style="cursor: pointer" onclick="location.href='/mypage/message/receive/${pagination.curPage - 1}'"></i>
                 </c:if>
 
                 <c:forEach var="i" begin="${pagination.startPage}" end="${pagination.endPage}" step="1">
@@ -126,7 +126,7 @@
                         <span style="font-weight: bold">&nbsp;${i}&nbsp;</span>
                     </c:if>
                     <c:if test="${pagination.curPage != i}">
-                        <span style="cursor: pointer" onclick="location.href='/mypage/recevie/${i}'">&nbsp;${i}&nbsp;</span>
+                        <span style="cursor: pointer" onclick="location.href='/mypage/message/receive/${i}'">&nbsp;${i}&nbsp;</span>
                     </c:if>
                 </c:forEach>
 
@@ -134,7 +134,7 @@
                     <i class="fas fa-angle-right"></i>
                 </c:if>
                 <c:if test="${pagination.curPage != pagination.endPage}">
-                    <i class="fas fa-angle-right" style="cursor: pointer" onclick="location.href='/mypage/recevie/${pagination.curPage + 1}'"></i>
+                    <i class="fas fa-angle-right" style="cursor: pointer" onclick="location.href='/mypage/message/receive/${pagination.curPage + 1}'"></i>
                 </c:if>
             </div>
 

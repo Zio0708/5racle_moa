@@ -11,4 +11,5 @@ public interface MessengerMapper {
     boolean updateReadState(int messageNum);
     boolean deleteMessage(Map<String, Object> messageInfo);
     MessageVO searchOneMessage(int messageId);
+    boolean insertOneMessage(Map<String,Object> insertMessageInfo);
 }

@@ -4,4 +4,5 @@ import com.moa.model.vo.SimpleUserInfoVO;
 
 public interface UserDAO {
     SimpleUserInfoVO selectUserInfo(int userId);
+    boolean checkExistUser(String userNick);
 }

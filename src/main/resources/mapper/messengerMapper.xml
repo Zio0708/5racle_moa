@@ -3,6 +3,9 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.moa.mybatis.MessengerMapper">
+    <insert id="insertOneMessage" statementType="CALLABLE" parameterType="hashMap">
+        CALL pi_insert_message(#{senderNick},#{receiverNick},#{content})
+    </insert>
     <select id="searchOneMessage" parameterType="int" resultType="com.moa.model.vo.MessageVO">
         SELECT
           RECEIVER_ID receiverId, nickname receiverNick, sender_id senderId,

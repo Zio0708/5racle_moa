@@ -28,4 +28,7 @@ public class MessengerListServiceImpl {
     public MessageVO messageDetail(int messageId){
         return dao.searchOneMessage(messageId);
     }
+    public boolean messageSend(Map<String,Object> sentMessage){
+        return dao.insertOneMessage(sentMessage);
+    }
 }
