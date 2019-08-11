@@ -73,7 +73,7 @@ public class MyPageController {
     @ResponseBody
     public ReadStoreRequestVO myPageRequestInfo(@PathVariable("requestNum") int requestId){
         ReadStoreRequestVO requestVO = luggageRequestInfoService.selectLuggageRequestInfo(requestId);
-        System.out.println(requestVO);
+
         requestVO.setApplicationDate(requestVO.getApplicationDate());
         return requestVO;
     }
@@ -109,7 +109,6 @@ public class MyPageController {
         mav.addObject(list);
         mav.addObject(pagination);
 
-        System.out.println(mav);
 
         return mav;
     }
@@ -138,7 +137,7 @@ public class MyPageController {
         mav.addObject(list);
         mav.addObject(pagination);
 
-        System.out.println(mav);
+
 
         return mav;
     }
@@ -169,7 +168,6 @@ public class MyPageController {
         mav.addObject(list);
         mav.addObject(pagination);
 
-        System.out.println(mav);
 
         return mav;
     }
@@ -198,7 +196,7 @@ public class MyPageController {
         mav.addObject(list);
         mav.addObject(pagination);
 
-        System.out.println(mav);
+       
 
         return mav;
     }
