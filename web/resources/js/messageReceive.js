@@ -1,7 +1,6 @@
 function popupOpen(num, readState){
     console.log("num:"+num+",readState:"+readState);
     if(readState == 0){
-
         $.ajax({
             url:"/mypage/message/read/"+num,
             type:"get",
@@ -44,4 +43,6 @@ function sendPopup(){
     window.open(popUrl,"",popOption);
 
 }
-
+$(".title_select").click(function selectAll() {
+    // $(".selectAll").
+});

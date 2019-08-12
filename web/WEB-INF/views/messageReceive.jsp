@@ -61,7 +61,7 @@
             <div class="main_content">
                 <table>
                     <tr>
-                        <td id="title_select">선택</td>
+                        <td id="title_select">선택<input id="selectAll"type="checkbox"></td>
                         <td id="title_profile">읽음</td>
                         <td id="title_nick">닉네임</td>
                         <td id="title_content">내용</td>
