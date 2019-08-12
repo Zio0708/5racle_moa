@@ -80,10 +80,10 @@
                                         <td style="font-weight: bold;"><i class="far fa-envelope"></i></td>
                                         <td style="font-weight: bold;">${i.senderNick}</td>
                                         <c:if test="${fn:length(i.content) > 35}">
-                                            <td onclick="popupOpen(${i.messageId},${i.readState})"  style="font-weight: bold;text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
+                                            <td onclick="popupOpen(${i.messageId},0)"  style="font-weight: bold;text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
                                         </c:if>
                                         <c:if test="${fn:length(i.content) <= 35}">
-                                            <td  onclick="popupOpen(${i.messageId},${i.readState})"  style="font-weight: bold;text-align: left;">${i.content}</td>
+                                            <td  onclick="popupOpen(${i.messageId},0)"  style="font-weight: bold;text-align: left;">${i.content}</td>
                                         </c:if>
                                         <td style="font-weight: bold;">${i.sendDate}</td>
                                         <td style="font-weight: bold;">${i.sendTime}</td>
@@ -95,10 +95,10 @@
                                         <td><i class="far fa-envelope-open"></i></td>
                                         <td>${i.senderNick}</td>
                                         <c:if test="${fn:length(i.content) > 30}">
-                                            <td  onclick="popupOpen(${i.messageId},${i.readState})" style="text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
+                                            <td  onclick="popupOpen(${i.messageId},1)" style="text-align: left;">${fn:substring(i.content,0,35).concat("...")}</td>
                                         </c:if>
                                         <c:if test="${fn:length(i.content) <= 30}">
-                                            <td  onclick="popupOpen(${i.messageId},${i.readState})" style="text-align: left;">${i.content}</td>
+                                            <td  onclick="popupOpen(${i.messageId},1)" style="text-align: left;">${i.content}</td>
                                         </c:if>
 
                                         <td>${i.sendDate}</td>
